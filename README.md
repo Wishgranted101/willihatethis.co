@@ -1,4 +1,3 @@
-# willihatethis
 # Will I Hate This?
 
 > Ship fast. But ship smart.
