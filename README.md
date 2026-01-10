@@ -2,7 +2,7 @@
 
 > Ship fast. But ship smart.
 
-A tool that predicts if your idea's go-to-market (GTM) strategy matches how you actually work—before you build something great that requires what you hate doing.
+Before you commit time and energy, run 'Will I Hate This" to predict if your idea's go-to-market (GTM) strategy matches how you actually work—before you build something great that requires what you hate doing.
 
 **🚀 Live Site:** [Coming Soon]  
 **📧 Join Waitlist:** [Coming Soon]
