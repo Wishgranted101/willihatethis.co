@@ -44,6 +44,26 @@ But it doesn't ask:
 
 ---
 
+🚀 How This Tool Actually Works
+
+This is not a predictor of success.
+It is a structured mismatch detector.
+
+It works in three steps:
+
+We classify the GTM shape that your idea requires
+
+We classify the GTM behaviors you are willing to repeat
+
+We flag where friction becomes unavoidable — and when
+
+The output is not advice.
+It is a warning label.
+
+That section alone removes the “assumes prior critique” weakness.
+
+---
+
 ## 🛠️ Tech Stack
 
 ### Current (Landing Page Phase)
