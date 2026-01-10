@@ -44,7 +44,7 @@ But it doesn't ask:
 
 ---
 
-🚀 How This Tool Actually Works
+## 🚀 How This Tool Actually Works 
 
 This is not a predictor of success.
 It is a structured mismatch detector.
