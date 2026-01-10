@@ -1,0 +1,360 @@
+import React, { useState } from 'react';
+import { AlertCircle, Target, Compass, CheckCircle, XCircle, Mail } from 'lucide-react';
+
+export default function LandingPage() {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState('');
+
+  const handleSubmit = () => {
+    if (!email || !email.includes('@')) {
+      alert('Please enter a valid email');
+      return;
+    }
+    
+    setStatus('submitting');
+    
+    // TODO: Replace with your Resend API integration
+    // Example: await fetch('/api/waitlist', { method: 'POST', body: JSON.stringify({ email }) })
+    
+    setTimeout(() => {
+      setStatus('success');
+      console.log('Waitlist signup:', email);
+      setEmail('');
+    }, 1000);
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50 text-gray-900">
+      {/* Header */}
+      <header className="bg-white border-b border-gray-200">
+        <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+              <Compass className="w-6 h-6 text-white" />
+            </div>
+            <span className="text-xl font-bold text-gray-900">Will I Hate This?</span>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero */}
+      <section className="max-w-4xl mx-auto px-6 py-20 text-center">
+        <div className="mb-8 flex justify-center">
+          <div className="relative w-24 h-24 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center shadow-lg">
+            <Compass className="w-14 h-14 text-white" />
+            <div className="absolute w-8 h-8 bg-amber-500 rounded-full flex items-center justify-center top-0 right-0 transform translate-x-2 -translate-y-2">
+              <AlertCircle className="w-5 h-5 text-white" />
+            </div>
+          </div>
+        </div>
+        
+        <h1 className="text-5xl font-bold mb-6 text-gray-900">
+          Ship fast. But ship smart.
+        </h1>
+        
+        <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+          Find out if your idea's go-to-market strategy matches how you actually work—before you build something great that requires what you hate doing.
+        </p>
+        
+        <div className="flex justify-center gap-4 mb-4">
+          <a href="#waitlist" className="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition">
+            Join the Waitlist
+          </a>
+        </div>
+        
+        <p className="text-sm text-gray-500">
+          For builders who ship fast—but want to know what comes after shipping
+        </p>
+      </section>
+
+      {/* Story Section */}
+      <section className="bg-white border-y border-gray-200 py-16">
+        <div className="max-w-3xl mx-auto px-6">
+          <h2 className="text-3xl font-bold mb-8 text-gray-900">Why I'm Building This</h2>
+          
+          <div className="space-y-4 text-gray-700 text-lg leading-relaxed">
+            <p>
+              I'm a fan of "ship it fast." I shipped <span className="font-semibold">FreelancerHealth</span> in 60 days—a tax calculator that implements the IRS Publication 974 iterative method for self-employed health insurance deductions.
+            </p>
+            
+            <p>
+              The product works. Users love the logic. The math is bulletproof.
+            </p>
+            
+            <p className="font-semibold text-gray-900">
+              But after shipping, I discovered the go-to-market (GTM) strategy requires:
+            </p>
+            
+            <ul className="space-y-2 my-6 ml-4">
+              <li className="flex items-start gap-3">
+                <span className="text-amber-500 text-2xl leading-none">•</span>
+                <span>18 months of trust building (I can do this, but it drains me)</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-amber-500 text-2xl leading-none">•</span>
+                <span>CPA partnership development (I'm uncomfortable with networking)</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-amber-500 text-2xl leading-none">•</span>
+                <span>Demo calls with tax firms (I actively avoid this)</span>
+              </li>
+            </ul>
+            
+            <p>
+              I didn't waste those 60 days—I learned a ton about tax logic, iterative calculations, and what users need.
+            </p>
+            
+            <p className="font-semibold text-gray-900">
+              I just wish I'd known the GTM requirements BEFORE I committed.
+            </p>
+            
+            <p>
+              Not to avoid building. But to go in with realistic expectations—or to choose a different distribution strategy from day one.
+            </p>
+            
+            <div className="text-lg font-semibold text-blue-700 border-l-4 border-blue-600 pl-4 py-3 bg-blue-50 rounded-r">
+              "Ship fast" is great advice. This tool just asks:<br />
+              <span className="text-blue-900">"Do you know what you're signing up for AFTER you ship?"</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="max-w-4xl mx-auto px-6 py-16">
+        <h2 className="text-3xl font-bold mb-12 text-center text-gray-900">
+          Three Questions Before You Ship
+        </h2>
+        
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="bg-white p-8 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition">
+            <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+              <Target className="w-6 h-6 text-blue-600" />
+            </div>
+            <h3 className="text-xl font-bold mb-4 text-gray-900">1. What does the GTM require?</h3>
+            <p className="text-gray-600 mb-4">
+              Not just "can you build it" but "how will you sell it?"
+            </p>
+            <ul className="space-y-2 text-sm text-gray-600">
+              <li>• Trust building timeline?</li>
+              <li>• Sales calls per week?</li>
+              <li>• Content volume needed?</li>
+              <li>• Partnership complexity?</li>
+              <li>• Social media grind?</li>
+            </ul>
+          </div>
+          
+          <div className="bg-white p-8 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition">
+            <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-4">
+              <CheckCircle className="w-6 h-6 text-emerald-600" />
+            </div>
+            <h3 className="text-xl font-bold mb-4 text-gray-900">2. What will YOU do?</h3>
+            <p className="text-gray-600 mb-4">
+              Honest about your work style
+            </p>
+            <ul className="space-y-2 text-sm text-gray-600">
+              <li>• What energizes you?</li>
+              <li>• What drains you?</li>
+              <li>• What will you avoid?</li>
+              <li>• What's sustainable?</li>
+            </ul>
+          </div>
+          
+          <div className="bg-white p-8 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition">
+            <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-4">
+              <AlertCircle className="w-6 h-6 text-amber-600" />
+            </div>
+            <h3 className="text-xl font-bold mb-4 text-gray-900">3. Where's the mismatch?</h3>
+            <p className="text-gray-600 mb-4">
+              Clear picture before you commit
+            </p>
+            <ul className="space-y-2 text-sm text-gray-600">
+              <li>• GTM/persona gaps</li>
+              <li>• Realistic timelines</li>
+              <li>• Alternative strategies</li>
+              <li>• Ship knowing this</li>
+            </ul>
+          </div>
+        </div>
+        
+        <p className="text-center text-lg font-semibold text-gray-900 mt-12">
+          Not "Don't ship." But "Ship with clear eyes about what comes next."
+        </p>
+      </section>
+
+      {/* Who This Is For */}
+      <section className="bg-gray-100 py-16">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-3xl font-bold mb-12 text-center text-gray-900">
+            Who This Is For
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white p-8 rounded-xl border-2 border-emerald-200">
+              <div className="flex items-center gap-3 mb-6">
+                <CheckCircle className="w-6 h-6 text-emerald-600" />
+                <h3 className="text-xl font-bold text-gray-900">This Tool Is For You If:</h3>
+              </div>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-600 font-bold text-lg">✓</span>
+                  <span>You love shipping fast—but want to know the GTM commitment</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-600 font-bold text-lg">✓</span>
+                  <span>You've built things that worked but required what you hate</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-600 font-bold text-lg">✓</span>
+                  <span>You want realistic expectations before investing time</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-600 font-bold text-lg">✓</span>
+                  <span>You'd rather pivot the GTM than discover it too late</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-600 font-bold text-lg">✓</span>
+                  <span>You believe "ship smart" > "ship blind"</span>
+                </li>
+              </ul>
+            </div>
+            
+            <div className="bg-white p-8 rounded-xl border-2 border-gray-200">
+              <div className="flex items-center gap-3 mb-6">
+                <XCircle className="w-6 h-6 text-gray-400" />
+                <h3 className="text-xl font-bold text-gray-900">This Tool Is NOT For You If:</h3>
+              </div>
+              <ul className="space-y-3 text-gray-600">
+                <li className="flex items-start gap-2">
+                  <span className="text-gray-400 font-bold text-lg">✗</span>
+                  <span>You truly don't care what the GTM requires (you'll do anything)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-gray-400 font-bold text-lg">✗</span>
+                  <span>You enjoy discovering GTM through trial and error</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-gray-400 font-bold text-lg">✗</span>
+                  <span>You have unlimited energy for any distribution method</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-gray-400 font-bold text-lg">✗</span>
+                  <span>You think analyzing GTM = analysis paralysis</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <p className="text-center text-lg text-gray-700 mt-8 font-medium">
+            We support "ship it fast." We just add: "Know what you're shipping INTO."
+          </p>
+        </div>
+      </section>
+
+      {/* Waitlist CTA */}
+      <section id="waitlist" className="max-w-2xl mx-auto px-6 py-20">
+        <div className="bg-white p-12 rounded-2xl border border-gray-200 shadow-lg text-center">
+          <Mail className="w-12 h-12 text-blue-600 mx-auto mb-6" />
+          <h2 className="text-3xl font-bold mb-4 text-gray-900">Be the First to Know</h2>
+          <p className="text-gray-600 mb-8 text-lg">
+            I'm building this in public. Join the waitlist for:
+          </p>
+          
+          <ul className="text-left max-w-md mx-auto mb-8 space-y-2 text-gray-700">
+            <li className="flex items-center gap-2">
+              <span className="text-blue-600">•</span>
+              Early access when it launches
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="text-blue-600">•</span>
+              Case studies from real post-mortems
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="text-blue-600">•</span>
+              Pattern library updates
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="text-blue-600">•</span>
+              Behind-the-scenes build process
+            </li>
+          </ul>
+          
+          {status === 'success' ? (
+            <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4 text-emerald-800">
+              <CheckCircle className="w-6 h-6 mx-auto mb-2" />
+              <p className="font-semibold">You're on the list! Check your email.</p>
+            </div>
+          ) : (
+            <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && handleSubmit()}
+                placeholder="your@email.com"
+                className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+              />
+              <button
+                onClick={handleSubmit}
+                disabled={status === 'submitting'}
+                className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {status === 'submitting' ? 'Joining...' : 'Join Waitlist'}
+              </button>
+            </div>
+          )}
+          
+          <p className="text-sm text-gray-500 mt-4">
+            No spam. Unsubscribe anytime. Updates every 2 weeks.
+          </p>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-gray-400 py-12">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                  <Compass className="w-5 h-5 text-white" />
+                </div>
+                <span className="text-lg font-bold text-white">Will I Hate This?</span>
+              </div>
+              <p className="text-sm">
+                Built by a logic-systematizer who learned the hard way.
+              </p>
+              <p className="text-sm mt-2">
+                Currently building: <span className="text-white">FreelancerHealth</span> (slow burn) + This (fast test)
+              </p>
+            </div>
+            
+            <div>
+              <h3 className="text-white font-semibold mb-4">Have a Project Post-Mortem?</h3>
+              <p className="text-sm mb-4">
+                Help us build better mismatch detection by sharing your experience.
+              </p>
+              <a
+                href="mailto:hello@example.com?subject=Project Post-Mortem"
+                className="inline-block bg-gray-800 text-white px-6 py-2 rounded-lg text-sm font-semibold hover:bg-gray-700 transition"
+              >
+                Share Your Story
+              </a>
+            </div>
+          </div>
+          
+          <div className="border-t border-gray-800 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p className="text-sm">
+              © 2025 Will I Hate This? All rights reserved.
+            </p>
+            <div className="flex gap-6 text-sm">
+              <a href="https://twitter.com/yourusername" className="hover:text-white transition">Twitter</a>
+              <a href="https://github.com/yourusername" className="hover:text-white transition">GitHub</a>
+              <a href="mailto:hello@example.com" className="hover:text-white transition">Email</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
