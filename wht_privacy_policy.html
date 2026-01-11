@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Will I Hate This?</title>
+    <meta name="description" content="Privacy policy for Will I Hate This? diagnostic service.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+        }
+        
+        [data-theme="dark"] {
+            --bg-primary: #111827;
+            --bg-secondary: #1f2937;
+            --text-primary: #f9fafb;
+            --text-secondary: #d1d5db;
+            --text-muted: #9ca3af;
+            --border: #374151;
+            --accent: #3b82f6;
+            --accent-hover: #60a5fa;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            transition: background 0.3s, color 0.3s;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        nav {
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: background 0.3s, border 0.3s;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+            margin-left: 2rem;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .container {
+            max-width: 768px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .hero-section {
+            padding: 5rem 0 3rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .last-updated {
+            font-size: 0.9375rem;
+            color: var(--text-muted);
+            margin-top: 1rem;
+        }
+        
+        .content-section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+        }
+        
+        .section-title:first-of-type {
+            margin-top: 0;
+        }
+        
+        .text-block {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .text-block strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+        
+        ul li {
+            padding: 0.5rem 0 0.5rem 1.5rem;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 1.0625rem;
+            line-height: 1.7;
+        }
+        
+        ul li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .highlight-box {
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            border-radius: 0 0.5rem 0.5rem 0;
+            transition: background 0.3s;
+        }
+        
+        .highlight-box p {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 0.75rem;
+        }
+        
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .highlight-box strong {
+            color: var(--text-primary);
+        }
+        
+        footer {
+            background: #111827;
+            color: #9ca3af;
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.875rem;
+            margin-top: 4rem;
+        }
+        
+        footer a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        svg {
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-section {
+                padding: 3rem 0 2rem;
+            }
+            
+            .content-section {
+                padding: 3rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="nav-logo">Will I Hate This?</a>
+            
+            <div class="nav-right">
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                    <svg width="20" height="20" viewBox="0 0 24 24" id="moon-icon">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg width="20" height="20" viewBox="0 0 24 24" id="sun-icon" style="display: none;">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                
+                <div class="nav-links">
+                    <a href="/">Home</a>
+                    <a href="/about">About</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="container">
+            <h1>Privacy Policy</h1>
+            <p class="last-updated">Last Updated: January 11, 2026</p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            
+            <p class="text-block">
+                This Privacy Policy describes how Will I Hate This? ("we," "us," or "our") collects, uses, and protects your information when you use our diagnostic service.
+            </p>
+            
+            <div class="highlight-box">
+                <p><strong>In short:</strong> We collect only what's necessary to deliver your diagnostic. We don't sell your data. We don't spam you. We don't share your individual responses.</p>
+            </div>
+            
+            <h2 class="section-title">Information We Collect</h2>
+            
+            <p class="text-block"><strong>Assessment Responses</strong></p>
+            <p class="text-block">
+                When you complete the diagnostic, we collect your answers to the 18 assessment questions. These responses include information about your idea's structure, your GTM approach, and your working patterns.
+            </p>
+            
+            <p class="text-block"><strong>Contact Information</strong></p>
+            <p class="text-block">
+                We collect your email address to deliver your diagnostic report and send you a copy of your results.
+            </p>
+            
+            <p class="text-block"><strong>Payment Information</strong></p>
+            <p class="text-block">
+                Payment processing is handled by our third-party payment processor. We do not store your full credit card details. We receive only transaction confirmation and basic billing information.
+            </p>
+            
+            <p class="text-block"><strong>Technical Information</strong></p>
+            <p class="text-block">
+                We automatically collect certain technical information when you visit our site, including:
+            </p>
+            <ul>
+                <li>IP address</li>
+                <li>Browser type and version</li>
+                <li>Device information</li>
+                <li>Pages visited and time spent</li>
+                <li>Referring website</li>
+            </ul>
+            
+            <h2 class="section-title">How We Use Your Information</h2>
+            
+            <p class="text-block">We use collected information to:</p>
+            <ul>
+                <li><strong>Deliver your diagnostic report</strong> via email and on-screen display</li>
+                <li><strong>Process your payment</strong> through our payment processor</li>
+                <li><strong>Improve the diagnostic methodology</strong> using aggregated, anonymized data</li>
+                <li><strong>Send critical service updates</strong> (e.g., changes to the diagnostic, policy updates)</li>
+                <li><strong>Respond to support requests</strong> when you contact us</li>
+                <li><strong>Prevent fraud and abuse</strong> of the service</li>
+            </ul>
+            
+            <h2 class="section-title">What We Do NOT Do</h2>
+            
+            <div class="highlight-box">
+                <p><strong>We do not sell your data.</strong></p>
+                <p><strong>We do not share your individual assessment responses publicly.</strong></p>
+                <p><strong>We do not send marketing emails without your explicit consent.</strong></p>
+                <p><strong>We do not track you across other websites.</strong></p>
+            </div>
+            
+            <h2 class="section-title">Data Sharing and Disclosure</h2>
+            
+            <p class="text-block"><strong>Service Providers</strong></p>
+            <p class="text-block">
+                We share information with third-party service providers who help us operate our service, including:
+            </p>
+            <ul>
+                <li>Payment processors (for transaction processing)</li>
+                <li>Email delivery services (for sending your diagnostic report)</li>
+                <li>Hosting providers (for website and data storage)</li>
+            </ul>
+            <p class="text-block">
+                These providers are contractually obligated to protect your information and use it only for the services they provide to us.
+            </p>
+            
+            <p class="text-block"><strong>Aggregated Data</strong></p>
+            <p class="text-block">
+                We may use aggregated, anonymized data to improve the diagnostic methodology. For example: "Founders with X profile typically experience Y outcome with Z GTM pattern." This data cannot be used to identify you personally.
+            </p>
+            
+            <p class="text-block"><strong>Legal Requirements</strong></p>
+            <p class="text-block">
+                We may disclose your information if required by law, court order, or legal process, or if necessary to protect our rights, property, or safety.
+            </p>
+            
+            <h2 class="section-title">Data Retention</h2>
+            
+            <p class="text-block">
+                We retain your assessment data and diagnostic report indefinitely to allow you to reference your results. You may request deletion of your data at any time by emailing support@willihatethis.com.
+            </p>
+            
+            <p class="text-block">
+                Technical logs and analytics data are retained for up to 90 days.
+            </p>
+            
+            <h2 class="section-title">Your Rights</h2>
+            
+            <p class="text-block">You have the right to:</p>
+            <ul>
+                <li><strong>Access your data</strong> — Request a copy of the personal information we hold about you</li>
+                <li><strong>Correct your data</strong> — Request correction of inaccurate or incomplete information</li>
+                <li><strong>Delete your data</strong> — Request deletion of your assessment responses and diagnostic report</li>
+                <li><strong>Opt out of communications</strong> — Unsubscribe from non-essential emails</li>
+            </ul>
+            
+            <p class="text-block">
+                To exercise these rights, contact us at support@willihatethis.com.
+            </p>
+            
+            <h2 class="section-title">Cookies and Tracking</h2>
+            
+            <p class="text-block">
+                We use essential cookies to operate the service (e.g., maintaining your session, remembering your theme preference). We do not use tracking cookies for advertising purposes.
+            </p>
+            
+            <p class="text-block">
+                We use basic analytics to understand how people use our site (page views, time spent, referral sources). This helps us improve the service.
+            </p>
+            
+            <h2 class="section-title">Security</h2>
+            
+            <p class="text-block">
+                We use industry-standard security measures to protect your data, including encryption for data in transit (HTTPS) and at rest. However, no method of transmission over the internet is 100% secure. We cannot guarantee absolute security.
+            </p>
+            
+            <h2 class="section-title">Children's Privacy</h2>
+            
+            <p class="text-block">
+                Our service is not intended for individuals under 18 years of age. We do not knowingly collect information from children. If we discover we have collected information from a child, we will delete it immediately.
+            </p>
+            
+            <h2 class="section-title">International Users</h2>
+            
+            <p class="text-block">
+                If you are accessing our service from outside the United States, please be aware that your information may be transferred to, stored, and processed in the United States. By using our service, you consent to this transfer.
+            </p>
+            
+            <h2 class="section-title">Changes to This Policy</h2>
+            
+            <p class="text-block">
+                We may update this Privacy Policy from time to time. When we make changes, we will update the "Last Updated" date at the top of this page. If we make material changes, we will notify you via email.
+            </p>
+            
+            <p class="text-block">
+                Continued use of the service after changes become effective constitutes acceptance of the updated policy.
+            </p>
+            
+            <h2 class="section-title">Contact Us</h2>
+            
+            <p class="text-block">
+                If you have questions about this Privacy Policy or our data practices, contact us at:
+            </p>
+            
+            <div class="highlight-box">
+                <p><strong>Email:</strong> support@willihatethis.com</p>
+                <p><strong>Response time:</strong> Within 48 hours</p>
+            </div>
+            
+        </div>
+    </section>
+
+    <footer>
+        <div class="container" style="max-width: 1200px;">
+            <div style="display: flex; flex-direction: column; gap: 2rem; margin-bottom: 2rem;">
+                <div style="display: flex; flex-direction: column; gap: 2rem;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <div style="width: 32px; height: 32px; background: #2563eb; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" style="color: white;">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+                            </svg>
+                        </div>
+                        <span style="font-size: 1rem; font-weight: 700; color: white;">Will I Hate This?</span>
+                    </div>
+                    
+                    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; font-size: 0.875rem;">
+                        <a href="/" style="color: #9ca3af; text-decoration: none;">Home</a>
+                        <a href="/about" style="color: #9ca3af; text-decoration: none;">About</a>
+                        <a href="/#pricing" style="color: #9ca3af; text-decoration: none;">Pricing</a>
+                        <a href="/faq" style="color: #9ca3af; text-decoration: none;">FAQ</a>
+                        <a href="/privacy" style="color: #9ca3af; text-decoration: none;">Privacy</a>
+                        <a href="/terms" style="color: #9ca3af; text-decoration: none;">Terms</a>
+                        <a href="/refund-policy" style="color: #9ca3af; text-decoration: none;">Refund Policy</a>
+                        <a href="mailto:support@willihatethis.com" style="color: #9ca3af; text-decoration: none;">Contact</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem; font-size: 0.875rem; color: #6b7280; padding-top: 1rem; border-top: 1px solid #1f2937;">
+                © 2026 Will I Hate This? All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const moonIcon = document.getElementById('moon-icon');
+            const sunIcon = document.getElementById('sun-icon');
+            
+            if (html.getAttribute('data-theme') === 'dark') {
+                html.removeAttribute('data-theme');
+                moonIcon.style.display = 'block';
+                sunIcon.style.display = 'none';
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                moonIcon.style.display = 'none';
+                sunIcon.style.display = 'block';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+        
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            document.getElementById('moon-icon').style.display = 'none';
+            document.getElementById('sun-icon').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
