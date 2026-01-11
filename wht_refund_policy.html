@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refund Policy - Will I Hate This?</title>
+    <meta name="description" content="Refund policy for Will I Hate This? diagnostic service.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+        }
+        
+        [data-theme="dark"] {
+            --bg-primary: #111827;
+            --bg-secondary: #1f2937;
+            --text-primary: #f9fafb;
+            --text-secondary: #d1d5db;
+            --text-muted: #9ca3af;
+            --border: #374151;
+            --accent: #3b82f6;
+            --accent-hover: #60a5fa;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            transition: background 0.3s, color 0.3s;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        nav {
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: background 0.3s, border 0.3s;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+            margin-left: 2rem;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .container {
+            max-width: 768px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .hero-section {
+            padding: 5rem 0 3rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .last-updated {
+            font-size: 0.9375rem;
+            color: var(--text-muted);
+            margin-top: 1rem;
+        }
+        
+        .content-section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+        }
+        
+        .section-title:first-of-type {
+            margin-top: 0;
+        }
+        
+        .text-block {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .text-block strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+        
+        ul li {
+            padding: 0.5rem 0 0.5rem 1.5rem;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 1.0625rem;
+            line-height: 1.7;
+        }
+        
+        ul li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .highlight-box {
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            border-radius: 0 0.5rem 0.5rem 0;
+            transition: background 0.3s;
+        }
+        
+        .highlight-box p {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 0.75rem;
+        }
+        
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .highlight-box strong {
+            color: var(--text-primary);
+        }
+        
+        .warning-box {
+            background: #fef3c7;
+            border-left: 4px solid #d97706;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            border-radius: 0 0.5rem 0.5rem 0;
+        }
+        
+        [data-theme="dark"] .warning-box {
+            background: rgba(217, 119, 6, 0.1);
+        }
+        
+        .warning-box p {
+            font-size: 1.125rem;
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        .error-box {
+            background: #fef2f2;
+            border-left: 4px solid #ef4444;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            border-radius: 0 0.5rem 0.5rem 0;
+        }
+        
+        [data-theme="dark"] .error-box {
+            background: rgba(239, 68, 68, 0.1);
+        }
+        
+        .error-box p {
+            font-size: 1.0625rem;
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+        
+        .error-box p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .success-box {
+            background: #f0fdf4;
+            border-left: 4px solid #16a34a;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            border-radius: 0 0.5rem 0.5rem 0;
+        }
+        
+        [data-theme="dark"] .success-box {
+            background: rgba(22, 163, 74, 0.1);
+        }
+        
+        .success-box p {
+            font-size: 1.0625rem;
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+        
+        .success-box p:last-child {
+            margin-bottom: 0;
+        }
+        
+        footer {
+            background: #111827;
+            color: #9ca3af;
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.875rem;
+            margin-top: 4rem;
+        }
+        
+        footer a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        svg {
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-section {
+                padding: 3rem 0 2rem;
+            }
+            
+            .content-section {
+                padding: 3rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="nav-logo">Will I Hate This?</a>
+            
+            <div class="nav-right">
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                    <svg width="20" height="20" viewBox="0 0 24 24" id="moon-icon">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg width="20" height="20" viewBox="0 0 24 24" id="sun-icon" style="display: none;">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                
+                <div class="nav-links">
+                    <a href="/">Home</a>
+                    <a href="/about">About</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="container">
+            <h1>Refund Policy</h1>
+            <p class="last-updated">Last Updated: January 11, 2026</p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            
+            <div class="warning-box">
+                <p>No refunds for disagreement with the diagnostic verdict.</p>
+            </div>
+            
+            <p class="text-block">
+                This refund policy exists to set clear expectations about when refunds are and are not issued.
+            </p>
+            
+            <h2 class="section-title">The Core Principle</h2>
+            
+            <p class="text-block">
+                Will I Hate This? is a deterministic diagnostic tool, not subjective consulting. The same inputs always produce the same output.
+            </p>
+            
+            <p class="text-block">
+                If you disagree with your diagnostic verdict, that disagreement is not grounds for a refund. The diagnostic does not tell you what you want to hear. It classifies misalignment risk based on structural patterns.
+            </p>
+            
+            <div class="highlight-box">
+                <p><strong>Before purchasing, ask yourself:</strong></p>
+                <p>If the diagnostic flags high misery risk, will I actually use that information? Or will I ignore it and want my money back?</p>
+                <p>If the answer is "ignore it," save your $37.</p>
+            </div>
+            
+            <h2 class="section-title">When Refunds ARE Issued</h2>
+            
+            <div class="success-box">
+                <p>Refunds are issued ONLY for technical failures that prevent you from receiving or accessing your diagnostic report.</p>
+            </div>
+            
+            <p class="text-block">Examples of refundable technical failures:</p>
+            <ul>
+                <li>You completed payment but never received your diagnostic report (on-screen or via email)</li>
+                <li>The assessment system failed to save your responses</li>
+                <li>The report generation system malfunctioned</li>
+                <li>You were charged but did not receive access to the assessment</li>
+                <li>A technical error prevented you from completing the assessment after payment</li>
+            </ul>
+            
+            <p class="text-block">
+                In these cases, contact support@willihatethis.com within 7 days of purchase with details of the technical failure. We will investigate and issue a full refund if the failure is confirmed.
+            </p>
+            
+            <h2 class="section-title">When Refunds Are NOT Issued</h2>
+            
+            <div class="error-box">
+                <p>Refunds are NOT issued for:</p>
+            </div>
+            
+            <ul>
+                <li><strong>Disagreement with the verdict</strong> — "I don't think I'll hate this" is not grounds for a refund</li>
+                <li><strong>Unexpected results</strong> — "I thought it would say something different" is not grounds for a refund</li>
+                <li><strong>Unfavorable classification</strong> — "It says high misery risk but I disagree" is not grounds for a refund</li>
+                <li><strong>Changed mind</strong> — "I decided not to pursue this idea" is not grounds for a refund</li>
+                <li><strong>Buyer's remorse</strong> — "I regret purchasing" is not grounds for a refund</li>
+                <li><strong>Inaccurate inputs</strong> — If you provided inaccurate responses, that does not entitle you to a refund</li>
+                <li><strong>Misunderstood the service</strong> — The service description clearly states what the diagnostic does and does not do</li>
+                <li><strong>Expected different format</strong> — The diagnostic is delivered as described (PDF + on-screen)</li>
+                <li><strong>Wanted consulting instead</strong> — This is a diagnostic tool, not consulting</li>
+            </ul>
+            
+            <h2 class="section-title">Why This Policy Exists</h2>
+            
+            <p class="text-block">
+                This policy exists for three reasons:
+            </p>
+            
+            <p class="text-block">
+                <strong>1. The diagnostic is deterministic.</strong><br/>
+                Same inputs → same verdict. There is no subjective interpretation. If you don't like the verdict, that doesn't make it wrong.
+            </p>
+            
+            <p class="text-block">
+                <strong>2. The service is clearly described.</strong><br/>
+                The landing page, about page, and FAQ explicitly state what this diagnostic does and does not do. You are purchasing a classification system, not validation or encouragement.
+            </p>
+            
+            <p class="text-block">
+                <strong>3. Information has value even when uncomfortable.</strong><br/>
+                The most valuable diagnostic verdicts are often the ones founders don't want to hear. A refund policy based on disagreement would incentivize ignoring useful signals.
+            </p>
+            
+            <h2 class="section-title">Refund Request Process</h2>
+            
+            <p class="text-block">
+                If you experienced a genuine technical failure, contact us within 7 days:
+            </p>
+            
+            <div class="highlight-box">
+                <p><strong>Email:</strong> support@willihatethis.com</p>
+                <p><strong>Subject line:</strong> "Refund Request – Technical Failure"</p>
+                <p><strong>Include:</strong></p>
+                <ul style="margin: 0.5rem 0 0 1.5rem;">
+                    <li style="padding: 0.25rem 0; font-size: 1rem;">Purchase date and transaction ID</li>
+                    <li style="padding: 0.25rem 0; font-size: 1rem;">Email address used for purchase</li>
+                    <li style="padding: 0.25rem 0; font-size: 1rem;">Detailed description of the technical failure</li>
+                    <li style="padding: 0.25rem 0; font-size: 1rem;">Screenshots if applicable</li>
+                </ul>
+            </div>
+            
+            <p class="text-block">
+                We will investigate your claim and respond within 48 hours. If the technical failure is confirmed, we will issue a full refund within 5 business days.
+            </p>
+            
+            <h2 class="section-title">Chargebacks</h2>
+            
+            <div class="error-box">
+                <p>If you initiate a chargeback without first contacting support about a technical failure, you will be permanently banned from the service.</p>
+                <p>Chargeback abuse is fraud.</p>
+            </div>
+            
+            <p class="text-block">
+                If you have a legitimate technical issue, contact us. We will resolve it fairly. Filing a chargeback for disagreement with the verdict is not acceptable.
+            </p>
+            
+            <h2 class="section-title">Questions About This Policy</h2>
+            
+            <p class="text-block">
+                If you have questions about this refund policy, email support@willihatethis.com before purchasing.
+            </p>
+            
+            <p class="text-block">
+                We are transparent about what refunds are and are not issued for. If you're uncertain about whether you'll accept the diagnostic verdict, do not purchase.
+            </p>
+            
+        </div>
+    </section>
+
+    <footer>
+        <div class="container" style="max-width: 1200px;">
+            <div style="display: flex; flex-direction: column; gap: 2rem; margin-bottom: 2rem;">
+                <div style="display: flex; flex-direction: column; gap: 2rem;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <div style="width: 32px; height: 32px; background: #2563eb; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" style="color: white;">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+                            </svg>
+                        </div>
+                        <span style="font-size: 1rem; font-weight: 700; color: white;">Will I Hate This?</span>
+                    </div>
+                    
+                    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; font-size: 0.875rem;">
+                        <a href="/" style="color: #9ca3af; text-decoration: none;">Home</a>
+                        <a href="/about" style="color: #9ca3af; text-decoration: none;">About</a>
+                        <a href="/#pricing" style="color: #9ca3af; text-decoration: none;">Pricing</a>
+                        <a href="/faq" style="color: #9ca3af; text-decoration: none;">FAQ</a>
+                        <a href="/privacy" style="color: #9ca3af; text-decoration: none;">Privacy</a>
+                        <a href="/terms" style="color: #9ca3af; text-decoration: none;">Terms</a>
+                        <a href="/refund-policy" style="color: #9ca3af; text-decoration: none;">Refund Policy</a>
+                        <a href="mailto:support@willihatethis.com" style="color: #9ca3af; text-decoration: none;">Contact</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem; font-size: 0.875rem; color: #6b7280; padding-top: 1rem; border-top: 1px solid #1f2937;">
+                © 2026 Will I Hate This? All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const moonIcon = document.getElementById('moon-icon');
+            const sunIcon = document.getElementById('sun-icon');
+            
+            if (html.getAttribute('data-theme') === 'dark') {
+                html.removeAttribute('data-theme');
+                moonIcon.style.display = 'block';
+                sunIcon.style.display = 'none';
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                moonIcon.style.display = 'none';
+                sunIcon.style.display = 'block';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+        
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            document.getElementById('moon-icon').style.display = 'none';
+            document.getElementById('sun-icon').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
