@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Will I Hate This?</title>
+    <meta name="description" content="Terms of Service for Will I Hate This? diagnostic service.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+        }
+        
+        [data-theme="dark"] {
+            --bg-primary: #111827;
+            --bg-secondary: #1f2937;
+            --text-primary: #f9fafb;
+            --text-secondary: #d1d5db;
+            --text-muted: #9ca3af;
+            --border: #374151;
+            --accent: #3b82f6;
+            --accent-hover: #60a5fa;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            transition: background 0.3s, color 0.3s;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        nav {
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: background 0.3s, border 0.3s;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+            margin-left: 2rem;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .container {
+            max-width: 768px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .hero-section {
+            padding: 5rem 0 3rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .last-updated {
+            font-size: 0.9375rem;
+            color: var(--text-muted);
+            margin-top: 1rem;
+        }
+        
+        .content-section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+        }
+        
+        .section-title:first-of-type {
+            margin-top: 0;
+        }
+        
+        .text-block {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .text-block strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+        
+        ul li {
+            padding: 0.5rem 0 0.5rem 1.5rem;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 1.0625rem;
+            line-height: 1.7;
+        }
+        
+        ul li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .highlight-box {
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            border-radius: 0 0.5rem 0.5rem 0;
+            transition: background 0.3s;
+        }
+        
+        .highlight-box p {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 0.75rem;
+        }
+        
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .highlight-box strong {
+            color: var(--text-primary);
+        }
+        
+        .warning-box {
+            background: #fef3c7;
+            border-left: 4px solid #d97706;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            border-radius: 0 0.5rem 0.5rem 0;
+        }
+        
+        [data-theme="dark"] .warning-box {
+            background: rgba(217, 119, 6, 0.1);
+        }
+        
+        .warning-box p {
+            font-size: 1.0625rem;
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-weight: 500;
+            margin: 0;
+        }
+        
+        footer {
+            background: #111827;
+            color: #9ca3af;
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.875rem;
+            margin-top: 4rem;
+        }
+        
+        footer a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        svg {
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-section {
+                padding: 3rem 0 2rem;
+            }
+            
+            .content-section {
+                padding: 3rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="nav-logo">Will I Hate This?</a>
+            
+            <div class="nav-right">
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                    <svg width="20" height="20" viewBox="0 0 24 24" id="moon-icon">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg width="20" height="20" viewBox="0 0 24 24" id="sun-icon" style="display: none;">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                
+                <div class="nav-links">
+                    <a href="/">Home</a>
+                    <a href="/about">About</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="container">
+            <h1>Terms of Service</h1>
+            <p class="last-updated">Last Updated: January 11, 2026</p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            
+            <p class="text-block">
+                These Terms of Service ("Terms") govern your use of Will I Hate This? (the "Service"). By purchasing and using the Service, you agree to these Terms.
+            </p>
+            
+            <div class="warning-box">
+                <p>Read these Terms carefully. They contain important information about your rights, remedies, and obligations.</p>
+            </div>
+            
+            <h2 class="section-title">1. Service Description</h2>
+            
+            <p class="text-block">
+                Will I Hate This? is a pre-mortem diagnostic tool that classifies misalignment risk between a founder's working patterns and the structural requirements of their go-to-market approach.
+            </p>
+            
+            <p class="text-block">The Service provides:</p>
+            <ul>
+                <li>An 18-question assessment</li>
+                <li>A deterministic diagnostic report</li>
+                <li>GTM shape classification</li>
+                <li>Misery risk level assessment</li>
+                <li>Time-to-regret estimate</li>
+                <li>Explicit mismatch flags</li>
+            </ul>
+            
+            <div class="highlight-box">
+                <p><strong>The Service is NOT:</strong></p>
+                <p>Consulting, coaching, validation, market research, success prediction, or personalized advice. It is a classification diagnostic based on deterministic rules.</p>
+            </div>
+            
+            <h2 class="section-title">2. What the Diagnostic Does NOT Do</h2>
+            
+            <p class="text-block">The diagnostic explicitly does not evaluate:</p>
+            <ul>
+                <li>Idea quality or viability</li>
+                <li>Market size or opportunity</li>
+                <li>Likelihood of success</li>
+                <li>Revenue potential</li>
+                <li>Competitive landscape</li>
+                <li>Technical feasibility</li>
+            </ul>
+            
+            <p class="text-block">
+                The diagnostic only classifies structural misalignment risk between required GTM behaviors and founder tolerance patterns.
+            </p>
+            
+            <h2 class="section-title">3. Eligibility</h2>
+            
+            <p class="text-block">
+                You must be at least 18 years old to use this Service. By using the Service, you represent and warrant that you meet this requirement.
+            </p>
+            
+            <h2 class="section-title">4. Purchase and Payment</h2>
+            
+            <p class="text-block">
+                The diagnostic costs $37 (one-time payment). Payment is processed through our third-party payment processor. By purchasing, you authorize us to charge your payment method.
+            </p>
+            
+            <p class="text-block">
+                All sales are final. See our Refund Policy for exceptions.
+            </p>
+            
+            <h2 class="section-title">5. No Refunds for Disagreement</h2>
+            
+            <div class="warning-box">
+                <p>We do not issue refunds based on disagreement with the diagnostic verdict. The diagnostic is deterministic — the same inputs always produce the same output.</p>
+            </div>
+            
+            <p class="text-block">
+                Refunds are only issued for technical failures that prevent you from receiving or accessing your diagnostic report. See our Refund Policy for details.
+            </p>
+            
+            <h2 class="section-title">6. Accuracy of Information</h2>
+            
+            <p class="text-block">
+                You are responsible for providing accurate information during the assessment. The diagnostic's accuracy depends on the accuracy of your inputs.
+            </p>
+            
+            <p class="text-block">
+                We are not responsible for incorrect classifications that result from inaccurate, incomplete, or dishonest responses.
+            </p>
+            
+            <h2 class="section-title">7. No Warranties or Guarantees</h2>
+            
+            <p class="text-block">
+                The Service is provided "as is" and "as available" without any warranties of any kind, either express or implied.
+            </p>
+            
+            <p class="text-block">We specifically disclaim any warranties that:</p>
+            <ul>
+                <li>The diagnostic will prevent business failure</li>
+                <li>Following the diagnostic will lead to success</li>
+                <li>The diagnostic predictions will be accurate for your specific situation</li>
+                <li>The Service will be uninterrupted or error-free</li>
+            </ul>
+            
+            <p class="text-block">
+                The diagnostic is a pattern classification tool based on historical data. It is not a guarantee of future outcomes.
+            </p>
+            
+            <h2 class="section-title">8. Limitation of Liability</h2>
+            
+            <div class="highlight-box">
+                <p><strong>IMPORTANT:</strong> To the maximum extent permitted by law, Will I Hate This? and its operators shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses.</p>
+            </div>
+            
+            <p class="text-block">
+                This includes but is not limited to damages resulting from:
+            </p>
+            <ul>
+                <li>Decisions made based on the diagnostic</li>
+                <li>Business failures or losses</li>
+                <li>Time or money invested based on the diagnostic</li>
+                <li>Opportunities foregone based on the diagnostic</li>
+                <li>Emotional distress resulting from the diagnostic</li>
+            </ul>
+            
+            <p class="text-block">
+                In no event shall our total liability exceed the amount you paid for the Service ($37).
+            </p>
+            
+            <h2 class="section-title">9. Not Professional Advice</h2>
+            
+            <p class="text-block">
+                The diagnostic is not professional business, financial, legal, or psychological advice. It is an automated classification system.
+            </p>
+            
+            <p class="text-block">
+                You should not rely solely on the diagnostic when making important business decisions. Consult qualified professionals as appropriate.
+            </p>
+            
+            <h2 class="section-title">10. Intellectual Property</h2>
+            
+            <p class="text-block">
+                All content, features, and functionality of the Service (including but not limited to text, graphics, logos, and software) are owned by Will I Hate This? and are protected by copyright, trademark, and other intellectual property laws.
+            </p>
+            
+            <p class="text-block">
+                Your diagnostic report is provided for your personal use. You may not:
+            </p>
+            <ul>
+                <li>Reproduce or distribute the methodology</li>
+                <li>Reverse engineer the classification system</li>
+                <li>Create derivative works based on the diagnostic</li>
+                <li>Use the Service to create a competing product</li>
+            </ul>
+            
+            <h2 class="section-title">11. User Conduct</h2>
+            
+            <p class="text-block">You agree not to:</p>
+            <ul>
+                <li>Use the Service for any unlawful purpose</li>
+                <li>Attempt to gain unauthorized access to our systems</li>
+                <li>Interfere with or disrupt the Service</li>
+                <li>Submit false or misleading information</li>
+                <li>Abuse the refund policy through fraudulent claims</li>
+                <li>Use automated tools to access the Service without permission</li>
+            </ul>
+            
+            <h2 class="section-title">12. Termination</h2>
+            
+            <p class="text-block">
+                We reserve the right to refuse service, terminate accounts, or remove content at our sole discretion, including if we believe you have violated these Terms.
+            </p>
+            
+            <h2 class="section-title">13. Changes to the Service</h2>
+            
+            <p class="text-block">
+                We reserve the right to modify or discontinue the Service at any time without notice. We will not be liable if the Service becomes unavailable.
+            </p>
+            
+            <p class="text-block">
+                The diagnostic methodology may be updated to improve accuracy. Your original assessment results will remain unchanged, but future assessments may use updated classification rules.
+            </p>
+            
+            <h2 class="section-title">14. Changes to Terms</h2>
+            
+            <p class="text-block">
+                We may update these Terms from time to time. When we make changes, we will update the "Last Updated" date. Material changes will be communicated via email.
+            </p>
+            
+            <p class="text-block">
+                Continued use of the Service after changes become effective constitutes acceptance of the updated Terms.
+            </p>
+            
+            <h2 class="section-title">15. Governing Law</h2>
+            
+            <p class="text-block">
+                These Terms are governed by the laws of the United States, without regard to conflict of law principles.
+            </p>
+            
+            <h2 class="section-title">16. Dispute Resolution</h2>
+            
+            <p class="text-block">
+                Any disputes arising from these Terms or your use of the Service shall be resolved through binding arbitration, except that either party may seek injunctive relief in court.
+            </p>
+            
+            <p class="text-block">
+                You waive any right to participate in a class action lawsuit or class-wide arbitration.
+            </p>
+            
+            <h2 class="section-title">17. Severability</h2>
+            
+            <p class="text-block">
+                If any provision of these Terms is found to be unenforceable, the remaining provisions will remain in full force and effect.
+            </p>
+            
+            <h2 class="section-title">18. Entire Agreement</h2>
+            
+            <p class="text-block">
+                These Terms, together with our Privacy Policy and Refund Policy, constitute the entire agreement between you and Will I Hate This? regarding the Service.
+            </p>
+            
+            <h2 class="section-title">19. Contact</h2>
+            
+            <p class="text-block">
+                Questions about these Terms? Contact us at:
+            </p>
+            
+            <div class="highlight-box">
+                <p><strong>Email:</strong> support@willihatethis.com</p>
+                <p><strong>Response time:</strong> Within 48 hours</p>
+            </div>
+            
+        </div>
+    </section>
+
+    <footer>
+        <div class="container" style="max-width: 1200px;">
+            <div style="display: flex; flex-direction: column; gap: 2rem; margin-bottom: 2rem;">
+                <div style="display: flex; flex-direction: column; gap: 2rem;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <div style="width: 32px; height: 32px; background: #2563eb; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" style="color: white;">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+                            </svg>
+                        </div>
+                        <span style="font-size: 1rem; font-weight: 700; color: white;">Will I Hate This?</span>
+                    </div>
+                    
+                    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; font-size: 0.875rem;">
+                        <a href="/" style="color: #9ca3af; text-decoration: none;">Home</a>
+                        <a href="/about" style="color: #9ca3af; text-decoration: none;">About</a>
+                        <a href="/#pricing" style="color: #9ca3af; text-decoration: none;">Pricing</a>
+                        <a href="/faq" style="color: #9ca3af; text-decoration: none;">FAQ</a>
+                        <a href="/privacy" style="color: #9ca3af; text-decoration: none;">Privacy</a>
+                        <a href="/terms" style="color: #9ca3af; text-decoration: none;">Terms</a>
+                        <a href="/refund-policy" style="color: #9ca3af; text-decoration: none;">Refund Policy</a>
+                        <a href="mailto:support@willihatethis.com" style="color: #9ca3af; text-decoration: none;">Contact</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem; font-size: 0.875rem; color: #6b7280; padding-top: 1rem; border-top: 1px solid #1f2937;">
+                © 2026 Will I Hate This? All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const moonIcon = document.getElementById('moon-icon');
+            const sunIcon = document.getElementById('sun-icon');
+            
+            if (html.getAttribute('data-theme') === 'dark') {
+                html.removeAttribute('data-theme');
+                moonIcon.style.display = 'block';
+                sunIcon.style.display = 'none';
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                moonIcon.style.display = 'none';
+                sunIcon.style.display = 'block';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+        
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            document.getElementById('moon-icon').style.display = 'none';
+            document.getElementById('sun-icon').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
