@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Will I Hate This?</title>
+    <meta name="description" content="Frequently asked questions about the Will I Hate This? founder diagnostic.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+        }
+        
+        [data-theme="dark"] {
+            --bg-primary: #111827;
+            --bg-secondary: #1f2937;
+            --text-primary: #f9fafb;
+            --text-secondary: #d1d5db;
+            --text-muted: #9ca3af;
+            --border: #374151;
+            --accent: #3b82f6;
+            --accent-hover: #60a5fa;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            transition: background 0.3s, color 0.3s;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        nav {
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: background 0.3s, border 0.3s;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+            margin-left: 2rem;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .container {
+            max-width: 768px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .hero-section {
+            padding: 5rem 0 3rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+        
+        .lead {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+        
+        .content-section {
+            padding: 4rem 0;
+        }
+        
+        .faq-item {
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            background: var(--bg-primary);
+            transition: background 0.3s, border 0.3s, box-shadow 0.3s;
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            padding: 1.5rem 1.75rem;
+            background: var(--bg-primary);
+            border: none;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+            gap: 1rem;
+        }
+        
+        .faq-question:hover {
+            background: var(--bg-secondary);
+        }
+        
+        .faq-answer {
+            padding: 0 1.75rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+        
+        .faq-answer.active {
+            padding: 1rem 1.75rem 1.75rem;
+            max-height: 1000px;
+        }
+        
+        .faq-answer p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 1.0625rem;
+            margin-bottom: 1rem;
+        }
+        
+        .faq-answer p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .faq-answer ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+        
+        .faq-answer li {
+            padding: 0.5rem 0 0.5rem 1.5rem;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 1.0625rem;
+            line-height: 1.7;
+        }
+        
+        .faq-answer li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .faq-icon {
+            flex-shrink: 0;
+            transition: transform 0.3s;
+        }
+        
+        .faq-icon.active {
+            transform: rotate(180deg);
+        }
+        
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 3rem 0 1.5rem;
+            color: var(--text-primary);
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--border);
+        }
+        
+        .category-title:first-of-type {
+            margin-top: 0;
+        }
+        
+        .highlight-box {
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            border-radius: 0 0.5rem 0.5rem 0;
+            transition: background 0.3s;
+        }
+        
+        .highlight-box p {
+            font-size: 1.0625rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            line-height: 1.7;
+            margin: 0;
+        }
+        
+        .cta-section {
+            background: var(--bg-secondary);
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 4rem;
+            border-top: 1px solid var(--border);
+            transition: background 0.3s;
+        }
+        
+        .cta-section h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .cta-section p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.0625rem;
+        }
+        
+        .btn-primary {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.875rem 2rem;
+            border-radius: 0.5rem;
+            font-size: 1.0625rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .btn-primary:hover {
+            background: var(--accent-hover);
+        }
+        
+        footer {
+            background: #111827;
+            color: #9ca3af;
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.875rem;
+        }
+        
+        footer a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        svg {
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-section {
+                padding: 3rem 0 2rem;
+            }
+            
+            .content-section {
+                padding: 3rem 0;
+            }
+            
+            .faq-question {
+                font-size: 1rem;
+                padding: 1.25rem 1.5rem;
+            }
+            
+            .faq-answer.active {
+                padding: 1rem 1.5rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="nav-logo">Will I Hate This?</a>
+            
+            <div class="nav-right">
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                    <svg width="20" height="20" viewBox="0 0 24 24" id="moon-icon">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg width="20" height="20" viewBox="0 0 24 24" id="sun-icon" style="display: none;">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                
+                <div class="nav-links">
+                    <a href="/">Home</a>
+                    <a href="/about">About</a>
+                    <a href="#pricing">Pricing</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="container">
+            <h1>Frequently Asked Questions</h1>
+            <p class="lead">
+                Everything you need to know about the diagnostic, the process, and what to expect.
+            </p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            
+            <h2 class="category-title">The Diagnostic</h2>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(0)">
+                    What exactly do I get?
+                    <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>You receive an immutable diagnostic report delivered both on-screen and as a PDF via email. The report includes:</p>
+                    <ul>
+                        <li>Your Primary GTM Shape classification</li>
+                        <li>Misery Risk Level (Low/Medium/High)</li>
+                        <li>Time-to-Regret estimate (in days)</li>
+                        <li>Explicit mismatch flags between GTM requirements and your working patterns</li>
+                        <li>Structural conflict analysis</li>
+                    </ul>
+                    <p>The verdict is deterministic. Same inputs always produce the same output.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(1)">
+                    How long does the assessment take?
+                    <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>The diagnostic takes approximately 10-15 minutes to complete. You answer 18 fixed questions about your idea's structural requirements and your actual working behaviors.</p>
+                    <p>Your report is generated immediately upon completion.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(2)">
+                    What if I disagree with the verdict?
+                    <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Disagreement is not grounds for a refund. This is a classification system, not consulting.</p>
+                    <p>The diagnostic does not tell you what to do. It tells you what founders with similar profiles typically experience when building ideas with similar GTM requirements.</p>
+                    <p>If you're likely to ignore negative signals, save your $37.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(3)">
+                    Does this evaluate my idea's quality or market potential?
+                    <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>No. This diagnostic does not evaluate:</p>
+                    <ul>
+                        <li>Idea quality</li>
+                        <li>Market size</li>
+                        <li>Likelihood of success</li>
+                        <li>Revenue potential</li>
+                        <li>Competition</li>
+                    </ul>
+                    <p>It only classifies misalignment risk between what the GTM structurally requires and how you actually work.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(4)">
+                    Can I retake the diagnostic with a different idea?
+                    <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Each diagnostic is a one-time assessment for one idea. If you want to evaluate a different idea or GTM approach, you need a separate diagnostic ($37 per assessment).</p>
+                    <p>The diagnostic is not iterative. It's a fixed verdict based on the inputs you provide.</p>
+                </div>
+            </div>
+            
+            <h2 class="category-title">Methodology</h2>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(5)">
+                    How does the classification work?
+                    <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>The system uses deterministic rules to:</p>
+                    <ul>
+                        <li>Map your idea to one of five primary GTM patterns</li>
+                        <li>Identify the structural behaviors each pattern requires</li>
+                        <li>Compare those requirements against your stated working preferences and historical tolerance patterns</li>
+                        <li>Flag conflicts where the GTM demands behaviors you explicitly avoid or cannot sustain</li>
+                    </ul>
+                    <p>There is no AI interpretation. Same inputs → same verdict.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(6)">
+                    What are the five GTM patterns?
+                    <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>The diagnostic classifies ideas into one of five structural GTM shapes. Each shape has different behavioral requirements for distribution. The specific patterns and their requirements are part of the diagnostic methodology.</p>
+                    <p>You'll see your classification in your report.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(7)">
+                    Where does the "Time-to-Regret" estimate come from?
+                    <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Time-to-Regret estimates are based on when founders with similar profiles historically report avoidance, burnout, or abandonment when building ideas with similar GTM requirements.</p>
+                    <p>It's not a prediction. It's a pattern classification.</p>
+                </div>
+            </div>
+            
+            <h2 class="category-title">Payment & Refunds</h2>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(8)">
+                    What's your refund policy?
+                    <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>No refunds for disagreement with the diagnostic verdict. This is a deterministic classification system, not subjective consulting.</p>
+                    <p>Refunds are only issued for technical failures (e.g., you cannot access your report after payment).</p>
+                    <p>If you're uncertain about committing to a diagnosis you might ignore, save your money.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(9)">
+                    Is this a one-time payment?
+                    <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes. $37 is a one-time payment for one diagnostic assessment.</p>
+                    <p>No subscription. No recurring charges. No upsells.</p>
+                </div>
+            </div>
+            
+            <h2 class="category-title">Who This Is For</h2>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(10)">
+                    I'm not a "founder." Can I still use this?
+                    <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>If you're the person responsible for figuring out how to distribute something you're building, this diagnostic applies to you.</p>
+                    <p>The classification works for:</p>
+                    <ul>
+                        <li>Solo founders</li>
+                        <li>Side project builders</li>
+                        <li>First-time creators launching a product</li>
+                        <li>Anyone evaluating a new GTM path</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(11)">
+                    What if I already started building?
+                    <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>The diagnostic still works. You're evaluating the structural fit between your current GTM approach and your actual working patterns.</p>
+                    <p>If you're already experiencing misalignment, the diagnostic may confirm what you're feeling but haven't named yet.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(12)">
+                    Should I take this if I'm still in the "idea stage"?
+                    <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes. This diagnostic is designed for pre-commitment evaluation.</p>
+                    <p>The goal is to surface structural misalignment before you invest time, energy, and emotional commitment into a GTM path that conflicts with how you actually work.</p>
+                </div>
+            </div>
+            
+            <h2 class="category-title">Technical</h2>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(13)">
+                    How do I access my report after purchase?
+                    <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Your diagnostic report is delivered immediately in two ways:</p>
+                    <ul>
+                        <li>On-screen after you complete the assessment</li>
+                        <li>As a PDF sent to your email</li>
+                    </ul>
+                    <p>Check your spam folder if you don't receive the email within 5 minutes.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(14)">
+                    Is my data private?
+                    <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes. Your responses and diagnostic report are private. We do not share, sell, or publish individual assessment data.</p>
+                    <p>Aggregated, anonymized patterns may be used to improve the diagnostic methodology.</p>
+                </div>
+            </div>
+            
+            <h2 class="category-title">Still Have Questions?</h2>
+            
+            <div class="highlight-box">
+                <p>If your question isn't answered here, email us at support@willihatethis.com</p>
+            </div>
+            
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h3>Ready to find out what you're signing up for?</h3>
+            <p>Get your diagnostic in 10 minutes.</p>
+            <a href="/" class="btn-primary">Start Diagnostic — $37</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container" style="max-width: 1200px;">
+            <div style="display: flex; flex-direction: column; gap: 2rem; margin-bottom: 2rem;">
+                <div style="display: flex; flex-direction: column; gap: 2rem;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <div style="width: 32px; height: 32px; background: #2563eb; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" style="color: white;">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+                            </svg>
+                        </div>
+                        <span style="font-size: 1rem; font-weight: 700; color: white;">Will I Hate This?</span>
+                    </div>
+                    
+                    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; font-size: 0.875rem;">
+                        <a href="/" style="color: #9ca3af; text-decoration: none;">Home</a>
+                        <a href="/about" style="color: #9ca3af; text-decoration: none;">About</a>
+                        <a href="/#pricing" style="color: #9ca3af; text-decoration: none;">Pricing</a>
+                        <a href="/faq" style="color: #9ca3af; text-decoration: none;">FAQ</a>
+                        <a href="/privacy" style="color: #9ca3af; text-decoration: none;">Privacy</a>
+                        <a href="/terms" style="color: #9ca3af; text-decoration: none;">Terms</a>
+                        <a href="/refund-policy" style="color: #9ca3af; text-decoration: none;">Refund Policy</a>
+                        <a href="mailto:support@willihatethis.com" style="color: #9ca3af; text-decoration: none;">Contact</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem; font-size: 0.875rem; color: #6b7280; padding-top: 1rem; border-top: 1px solid #1f2937;">
+                © 2026 Will I Hate This? All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const moonIcon = document.getElementById('moon-icon');
+            const sunIcon = document.getElementById('sun-icon');
+            
+            if (html.getAttribute('data-theme') === 'dark') {
+                html.removeAttribute('data-theme');
+                moonIcon.style.display = 'block';
+                sunIcon.style.display = 'none';
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                moonIcon.style.display = 'none';
+                sunIcon.style.display = 'block';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+        
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            document.getElementById('moon-icon').style.display = 'none';
+            document.getElementById('sun-icon').style.display = 'block';
+        }
+        
+        let currentFAQ = null;
+        
+        function toggleFAQ(index) {
+            const allAnswers = document.querySelectorAll('.faq-answer');
+            const allIcons = document.querySelectorAll('.faq-icon');
+            const answer = allAnswers[index];
+            const icon = allIcons[index];
+            
+            if (currentFAQ !== null && currentFAQ !== index) {
+                allAnswers[currentFAQ].classList.remove('active');
+                allIcons[currentFAQ].classList.remove('active');
+            }
+            
+            answer.classList.toggle
