@@ -672,48 +672,70 @@
         </div>
     </footer>
 
-    <script>
-        function toggleTheme() {
-            const html = document.documentElement;
-            const moonIcon = document.getElementById('moon-icon');
-            const sunIcon = document.getElementById('sun-icon');
-            
-            if (html.getAttribute('data-theme') === 'dark') {
-                html.removeAttribute('data-theme');
-                moonIcon.style.display = 'block';
-                sunIcon.style.display = 'none';
-                localStorage.setItem('theme', 'light');
-            } else {
-                html.setAttribute('data-theme', 'dark');
-                moonIcon.style.display = 'none';
-                sunIcon.style.display = 'block';
-                localStorage.setItem('theme', 'dark');
-            }
+   <script>
+    function toggleTheme() {
+        const html = document.documentElement;
+        const moonIcon = document.getElementById('moon-icon');
+        const sunIcon = document.getElementById('sun-icon');
+        
+        if (html.getAttribute('data-theme') === 'dark') {
+            html.removeAttribute('data-theme');
+            moonIcon.style.display = 'block';
+            sunIcon.style.display = 'none';
+            localStorage.setItem('theme', 'light');
+        } else {
+            html.setAttribute('data-theme', 'dark');
+            moonIcon.style.display = 'none';
+            sunIcon.style.display = 'block';
+            localStorage.setItem('theme', 'dark');
+        }
+    }
+    
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        document.getElementById('moon-icon').style.display = 'none';
+        document.getElementById('sun-icon').style.display = 'block';
+    }
+    
+    let currentFAQ = null;
+    
+    function toggleFAQ(index) {
+        const allAnswers = document.querySelectorAll('.faq-answer');
+        const allIcons = document.querySelectorAll('.faq-icon');
+        const answer = allAnswers[index];
+        const icon = allIcons[index];
+        
+        if (currentFAQ !== null && currentFAQ !== index) {
+            allAnswers[currentFAQ].classList.remove('active');
+            allIcons[currentFAQ].classList.remove('active');
         }
         
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            document.getElementById('moon-icon').style.display = 'none';
-            document.getElementById('sun-icon').style.display = 'block';
-        }
+        // Toggle current FAQ
+        answer.classList.toggle('active');
+        icon.classList.toggle('active');
         
-        let currentFAQ = null;
-        
-        function toggleFAQ(index) {
-            const allAnswers = document.querySelectorAll('.faq-answer');
-            const allIcons = document.querySelectorAll('.faq-icon');
-            const answer = allAnswers[index];
-            const icon = allIcons[index];
-            
-            if (currentFAQ !== null && currentFAQ !== index) {
-                allAnswers[currentFAQ].classList.remove('active');
-                allIcons[currentFAQ].classList.remove('active');
-            }
-            
-            answer.classList.toggle
-           }
+        // Update current FAQ tracker
+        if (answer.classList.contains('active')) {
+            currentFAQ = index;
+        } else {
+            currentFAQ = null;
         }
-     </script>
+    }
+    
+    // Hamburger Menu Toggle
+    function toggleMenu() {
+        const navLinks = document.getElementById('navLinks');
+        navLinks.classList.toggle('active');
+    }
+    
+    // Close mobile menu when clicking nav links
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', function() {
+            document.getElementById('navLinks').classList.remove('active');
+        });
+    });
+</script>
+   
    <</body>
 <</html>
