@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Will I Hate This?</title>
+    <meta name="description" content="Learn why Will I Hate This? exists and what it does for founders.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+        }
+        
+        [data-theme="dark"] {
+            --bg-primary: #111827;
+            --bg-secondary: #1f2937;
+            --text-primary: #f9fafb;
+            --text-secondary: #d1d5db;
+            --text-muted: #9ca3af;
+            --border: #374151;
+            --accent: #3b82f6;
+            --accent-hover: #60a5fa;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            transition: background 0.3s, color 0.3s;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Navigation */
+        nav {
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: background 0.3s, border 0.3s;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+            margin-left: 2rem;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .container {
+            max-width: 768px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .hero-section {
+            padding: 5rem 0 3rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+        
+        .lead {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+        
+        .content-section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+        
+        .text-block {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .highlight-box {
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            border-radius: 0 0.5rem 0.5rem 0;
+            transition: background 0.3s;
+        }
+        
+        .highlight-box p {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+        
+        ul li {
+            padding: 0.5rem 0 0.5rem 1.5rem;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 1.0625rem;
+            line-height: 1.7;
+        }
+        
+        ul li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        @media (min-width: 768px) {
+            .philosophy-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .philosophy-card {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 0.75rem;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: background 0.3s, border 0.3s, transform 0.2s;
+        }
+        
+        .philosophy-card:hover {
+            transform: translateY(-2px);
+        }
+        
+        .philosophy-card h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .philosophy-card p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .cta-section {
+            background: var(--bg-secondary);
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 4rem;
+            border-top: 1px solid var(--border);
+            transition: background 0.3s;
+        }
+        
+        .cta-section h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .cta-section p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.0625rem;
+        }
+        
+        .btn-primary {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.875rem 2rem;
+            border-radius: 0.5rem;
+            font-size: 1.0625rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .btn-primary:hover {
+            background: var(--accent-hover);
+        }
+        
+        footer {
+            background: #111827;
+            color: #9ca3af;
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.875rem;
+        }
+        
+        footer a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        svg {
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-section {
+                padding: 3rem 0 2rem;
+            }
+            
+            .content-section {
+                padding: 3rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="nav-logo">Will I Hate This?</a>
+            
+            <div class="nav-right">
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                    <svg width="20" height="20" viewBox="0 0 24 24" id="moon-icon">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg width="20" height="20" viewBox="0 0 24 24" id="sun-icon" style="display: none;">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                
+                <div class="nav-links">
+                    <a href="/">Home</a>
+                    <a href="#pricing">Pricing</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>About</h1>
+            <p class="lead">
+                Will I Hate This? exists for one reason: Most founders discover misalignment after they've already paid for it in time, energy, and burnout.
+            </p>
+        </div>
+    </section>
+
+    <!-- THE PROBLEM -->
+    <section class="content-section">
+        <div class="container">
+            <p class="text-block">
+                Startup advice usually focuses on:
+            </p>
+            
+            <ul>
+                <li>market size</li>
+                <li>validation</li>
+                <li>execution</li>
+            </ul>
+            
+            <p class="text-block" style="margin-top: 1.5rem;">
+                It rarely asks the more dangerous question:
+            </p>
+            
+            <div class="highlight-box">
+                <p>What will this idea require from you, every week, for months?<br>And will you actually tolerate that?</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY THIS EXISTS -->
+    <section class="content-section" style="background: var(--bg-secondary); padding: 4rem 0;">
+        <div class="container">
+            <h2 class="section-title">Why This Exists</h2>
+            
+            <p class="text-block">
+                I previously built FreelancerHealth, a diagnostic tool that helps freelancers understand the real cost of health insurance before tax season.
+            </p>
+            
+            <p class="text-block">
+                The core insight was simple:
+            </p>
+            
+            <div class="highlight-box">
+                <p>Systems can be technically correct and still feel awful to live inside.</p>
+            </div>
+            
+            <p class="text-block">
+                Freelancers don't fail because they can't calculate. They fail because the consequences arrive late.
+            </p>
+            
+            <p class="text-block">
+                Founders face the same problem.
+            </p>
+            
+            <p class="text-block">
+                Most startup misery doesn't come from bad ideas. It comes from GTM paths that quietly conflict with how the founder works — discovered 60–90 days in, after commitment.
+            </p>
+        </div>
+    </section>
+
+    <!-- WHAT THIS TOOL DOES -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">What This Tool Does</h2>
+            
+            <p class="text-block">
+                Will I Hate This? is a pre-mortem diagnostic.
+            </p>
+            
+            <p class="text-block">
+                It does not predict success. It does not give advice.
+            </p>
+            
+            <p class="text-block">
+                It classifies:
+            </p>
+            
+            <ul>
+                <li>the structural go-to-market requirements of your idea</li>
+                <li>your actual working preferences and tolerances</li>
+            </ul>
+            
+            <p class="text-block" style="margin-top: 1.5rem;">
+                And flags where those two are likely to collide.
+            </p>
+            
+            <p class="text-block">
+                The output is a fixed assessment:
+            </p>
+            
+            <ul>
+                <li>GTM shape</li>
+                <li>misery risk level</li>
+                <li>estimated time-to-regret</li>
+                <li>specific mismatch signals</li>
+            </ul>
+            
+            <div class="highlight-box" style="margin-top: 2rem;">
+                <p>Same inputs. Same verdict.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT THIS TOOL IS NOT -->
+    <section class="content-section" style="background: var(--bg-secondary); padding: 4rem 0;">
+        <div class="container">
+            <h2 class="section-title">What This Tool Is Not</h2>
+            
+            <ul>
+                <li>Not coaching</li>
+                <li>Not validation</li>
+                <li>Not motivation</li>
+                <li>Not encouragement</li>
+            </ul>
+            
+            <p class="text-block" style="margin-top: 1.5rem;">
+                It will not tell you what to do.
+            </p>
+            
+            <p class="text-block">
+                It only tells you what founders like you typically experience when they build ideas like this.
+            </p>
+        </div>
+    </section>
+
+    <!-- PHILOSOPHY -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Philosophy</h2>
+            
+            <div class="philosophy-grid">
+                <div class="philosophy-card">
+                    <h4>Ambiguity is expensive</h4>
+                    <p>Uncertainty compounds. Clarity reduces waste.</p>
+                </div>
+                
+                <div class="philosophy-card">
+                    <h4>Discomfort is information</h4>
+                    <p>The signal matters more than the comfort.</p>
+                </div>
+                
+                <div class="philosophy-card">
+                    <h4>Time is the real cost</h4>
+                    <p>You can recover money. You cannot recover months.</p>
+                </div>
+            </div>
+            
+            <p class="text-block" style="margin-top: 2rem; text-align: center; font-weight: 500;">
+                This tool exists to surface that cost early — before you pay it unknowingly.
+            </p>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h3>Ready to know what you're signing up for?</h3>
+            <p>Get your diagnostic in 10 minutes.</p>
+            <a href="/" class="btn-primary">Start Diagnostic — $37</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container" style="max-width: 1200px;">
+            <div style="display: flex; flex-direction: column; gap: 2rem; margin-bottom: 2rem;">
+                <div style="display: flex; flex-direction: column; gap: 2rem;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <div style="width: 32px; height: 32px; background: #2563eb; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" style="color: white;">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+                            </svg>
+                        </div>
+                        <span style="font-size: 1rem; font-weight: 700; color: white;">Will I Hate This?</span>
+                    </div>
+                    
+                    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; font-size: 0.875rem;">
+                        <a href="/" style="color: #9ca3af; text-decoration: none; transition: color 0.2s;">Home</a>
+                        <a href="/#pricing" style="color: #9ca3af; text-decoration: none; transition: color 0.2s;">Pricing</a>
+                        <a href="/#faq" style="color: #9ca3af; text-decoration: none; transition: color 0.2s;">FAQ</a>
+                        <a href="#" style="color: #9ca3af; text-decoration: none; transition: color 0.2s;">Privacy</a>
+                        <a href="#" style="color: #9ca3af; text-decoration: none; transition: color 0.2s;">Contact</a>
+                        <a href="#" style="color: #9ca3af; text-decoration: none; transition: color 0.2s;">Terms</a>
+                        <a href="#" style="color: #9ca3af; text-decoration: none; transition: color 0.2s;">Refund Policy</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem; font-size: 0.875rem; color: #6b7280; padding-top: 1rem; border-top: 1px solid #1f2937;">
+                <div style="margin-bottom: 0.5rem;">
+                    Built with <svg width="14" height="14" viewBox="0 0 24 24" style="display: inline-block; vertical-align: middle; fill: #ef4444; stroke: none; margin: 0 2px;">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg> by <a href="https://twitter.com/YourTwitterHandle" target="_blank" rel="noopener noreferrer" style="color: #9ca3af; text-decoration: none;">Will I Hate This?</a>
+                </div>
+                © 2026 Will I Hate This? All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const moonIcon = document.getElementById('moon-icon');
+            const sunIcon = document.getElementById('sun-icon');
+            
+            if (html.getAttribute('data-theme') === 'dark') {
+                html.removeAttribute('data-theme');
+                moonIcon.style.display = 'block';
+                sunIcon.style.display = 'none';
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                moonIcon.style.display = 'none';
+                sunIcon.style.display = 'block';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+        
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            document.getElementById('moon-icon').style.display = 'none';
+            document.getElementById('sun-icon').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
