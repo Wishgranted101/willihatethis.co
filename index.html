@@ -169,6 +169,7 @@
                 display: flex;
             }
         }
+        
         /* Hero Section */
         .hero {
             max-width: 1280px;
@@ -278,85 +279,8 @@
             color: var(--text-muted);
             margin-top: 1rem;
         }
-        </style>
-</head>
-<body>
-
-    <!-- NAVIGATION -->
-    <nav>
-        <div class="nav-container">
-            <a href="#" class="nav-logo">Will I Hate This?</a>
-            
-            <div class="nav-right">
-                <div class="nav-links" id="navLinks">
-                    <a href="#pricing">Pricing</a>
-                    <a href="#faq">FAQ</a>
-                </div>
-                
-                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
-                    <svg width="20" height="20" viewBox="0 0 24 24" id="moon-icon" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg width="20" height="20" viewBox="0 0 24 24" id="sun-icon" style="display: none;" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-                
-                <div class="hamburger" onclick="toggleMenu()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- HERO -->
-    <section class="hero">
-        <div class="hero-badge">
-            <div class="hero-badge-icon">
-                <svg width="10" height="10" viewBox="0 0 24 24" style="color: white;" fill="none" stroke="currentColor" stroke-width="3">
-                    <circle cx="12" cy="12" r="1"/>
-                </svg>
-            </div>
-            Pre-Mortem Diagnostic for Founders
-        </div>
         
-        <h1>Will I Hate This?</h1>
-        
-        <p class="subtitle">
-            Discover whether what you're building is something you can realistically sell and sustain — before committing your time to the wrong go-to-market (GTM).
-        </p>
-        
-        <p class="meta-info">
-            Assessment Type: Founder—GTM Misery Risk Classification<br/>
-            Format: One-time diagnostic report (PDF + on-screen)
-        </p>
-        
-        <div class="hero-cta">
-            <button class="btn-primary" onclick="alert('Payment integration coming soon')">
-                Start Diagnostic
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-            </button>
-        </div>
-        
-        <p class="note">
-            One assessment. One verdict. PDF report delivered immediately.
-        </p>
-    </section>
-    
-    /* Sections */
+        /* Sections */
         .section {
             max-width: 1280px;
             margin: 0 auto;
@@ -465,48 +389,8 @@
             display: block;
             margin-bottom: 0.75rem;
         }
-    <!-- PROBLEM CARDS -->
-    <section class="section-alt">
-        <div class="section">
-            <div class="grid-2col">
-                <div class="card">
-                    <div class="card-icon icon-check">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                    </div>
-                    <h3>Most validation frameworks ask:</h3>
-                    <ul>
-                        <li>Is there a market?</li>
-                        <li>Will people pay?</li>
-                        <li>Can you build it?</li>
-                    </ul>
-                </div>
-                
-                <div class="card">
-                    <div class="card-icon icon-alert">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
-                        </svg>
-                    </div>
-                    <h3>They don't ask:</h3>
-                    <ul>
-                        <li>Will the required GTM make you miserable?</li>
-                        <li>How long until you discover the mismatch?</li>
-                        <li>Are you building for the wrong founder (you)?</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="result-text">
-                <span class="result-strong">Result: You build something that works — but requires distribution behaviors you won't sustain.</span>
-                <span style="color: var(--text-muted);">You usually discover this 60—90 days in, after committing time and energy.</span>
-            </div>
-        </div>
-    </section>
-    
-    /* Content Sections */
-    
+        
+        /* Content Sections */
         .content-section {
             max-width: 720px;
             margin: 0 auto;
@@ -566,27 +450,8 @@
                 padding: 1.25rem 0 1.25rem 1.5rem;
             }
         }
-    <!-- REFRAME -->
-    <section>
-        <div class="content-section">
-            <h2>Standard validation does not measure founder—GTM fit.</h2>
-            
-            <div class="text-content">
-                <p>Standard validation tells you <em>what</em> to build.</p>
-                
-                <p>It doesn't tell you if you'll hate <em>how</em> you have to sell it.</p>
-                
-                <p class="callout">
-                    The missing question:<br/>
-                    "Will I hate the GTM this requires?"
-                </p>
-                
-                <p style="padding-top: 1rem;">That's what this diagnostic answers.</p>
-            </div>
-        </div>
-    </section>
-
-    /* What This Is Section */
+        
+        /* What This Is Section */
         .what-section {
             max-width: 1280px;
             margin: 0 auto;
@@ -638,88 +503,8 @@
             color: var(--text-primary);
             padding-top: 0.5rem;
         }
-    <!-- WHAT THIS IS / IS NOT -->
-    <section class="section-alt">
-        <div class="what-section">
-            <div class="grid-2col">
-                <div class="what-card">
-                    <h3>
-                        <svg width="24" height="24" viewBox="0 0 24 24" style="color: #f59e0b;" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-                        </svg>
-                        What This Is
-                    </h3>
-                    <ul>
-                        <li>
-                            <svg width="18" height="18" viewBox="0 0 24 24" style="color: #16a34a;" fill="none" stroke="currentColor" stroke-width="2.5">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span>A Founder—GTM Misery Risk Diagnostic.</span>
-                        </li>
-                        <li>
-                            <svg width="18" height="18" viewBox="0 0 24 24" style="color: #16a34a;" fill="none" stroke="currentColor" stroke-width="2.5">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span>You answer 18 fixed questions about your idea's structural GTM requirements, your actual working behaviors, and your historical tolerance patterns.</span>
-                        </li>
-                        <li>
-                            <svg width="18" height="18" viewBox="0 0 24 24" style="color: #16a34a;" fill="none" stroke="currentColor" stroke-width="2.5">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span>You receive a deterministic diagnostic report with your Primary GTM Shape, Misery Risk Level, Time-to-Regret estimate, and explicit mismatch flags.</span>
-                        </li>
-                        <li>
-                            <span>Same inputs → same verdict. No iteration. No interpretation.</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="what-card">
-                    <h3>
-                        <svg width="24" height="24" viewBox="0 0 24 24" style="color: #ef4444;" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line>
-                        </svg>
-                        What This Is NOT
-                    </h3>
-                    <ul>
-                        <li>
-                            <svg width="18" height="18" viewBox="0 0 24 24" style="color: #ef4444;" fill="none" stroke="currentColor" stroke-width="2.5">
-                                <line x1="18" y1="6" x2="6" y2="18"></line>
-                                <line x1="6" y1="6" x2="18" y2="18"></line>
-                            </svg>
-                            <span>This diagnostic does not evaluate idea quality.</span>
-                        </li>
-                        <li>
-                            <svg width="18" height="18" viewBox="0 0 24 24" style="color: #ef4444;" fill="none" stroke="currentColor" stroke-width="2.5">
-                                <line x1="18" y1="6" x2="6" y2="18"></line>
-                                <line x1="6" y1="6" x2="18" y2="18"></line>
-                            </svg>
-                            <span>It does not evaluate market size.</span>
-                        </li>
-                        <li>
-                            <svg width="18" height="18" viewBox="0 0 24 24" style="color: #ef4444;" fill="none" stroke="currentColor" stroke-width="2.5">
-                                <line x1="18" y1="6" x2="6" y2="18"></line>
-                                <line x1="6" y1="6" x2="18" y2="18"></line>
-                            </svg>
-                            <span>It does not evaluate the likelihood of success.</span>
-                        </li>
-                        <li>
-                            <svg width="18" height="18" viewBox="0 0 24 24" style="color: #ef4444;" fill="none" stroke="currentColor" stroke-width="2.5">
-                                <line x1="18" y1="6" x2="6" y2="18"></line>
-                                <line x1="6" y1="6" x2="18" y2="18"></line>
-                            </svg>
-                            <span>It does not tell you whether you should quit.</span>
-                        </li>
-                        <li>
-                            <span>It only classifies misalignment risk between what the GTM structurally requires and how you actually work.</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-    /* Steps Section */
+        
+        /* Steps Section */
         .steps-section {
             max-width: 720px;
             margin: 0 auto;
@@ -766,56 +551,8 @@
             font-size: 0.9375rem;
             line-height: 1.6;
         }
-    <!-- DIAGNOSTIC METHOD -->
-    <section>
-        <div class="steps-section">
-            <h2>Diagnostic Method</h2>
-            
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h4>Answer 18 fixed questions</h4>
-                        <p>Structured inputs about your idea, GTM approach, and actual work patterns.</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h4>System classifies GTM shape</h4>
-                        <p>Deterministic rules map your idea to one of five primary GTM patterns.</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h4>System compares against founder profile</h4>
-                        <p>Your behavioral constraints are matched against GTM requirements.</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <h4>System flags mismatch risk</h4>
-                        <p>Automatic detection of structural conflicts between GTM and founder tolerance.</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">5</div>
-                    <div class="step-content">
-                        <h4>Fixed verdict generated</h4>
-                        <p>Immutable diagnostic report delivered on-screen and via email as PDF.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    /* Sample Output Section */
+        
+        /* Sample Output Section */
         .sample-section {
             max-width: 900px;
             margin: 0 auto;
@@ -919,48 +656,8 @@
             font-weight: 700;
             flex-shrink: 0;
         }
-    <!-- SAMPLE OUTPUT -->
-    <section class="section-alt">
-        <div class="sample-section">
-            <div class="sample-intro">
-                <h2>Sample Diagnostic Output</h2>
-                <p>Example output from the diagnostic report, shown for format and structure only.</p>
-            </div>
-            
-            <div class="verdict-box">
-                <div class="verdict-header">
-                    <div class="verdict-label">VERDICT</div>
-                    <div class="verdict-title">Misery Risk: HIGH</div>
-                    <p class="verdict-desc">Expected mismatch between GTM requirements and founder energy profile.</p>
-                </div>
-                
-                <div class="verdict-section">
-                    <h4>Time-to-Regret: 60—120 days</h4>
-                    <p>The point at which founders with similar profiles historically report avoidance, burnout, or abandonment.</p>
-                </div>
-                
-                <div class="verdict-section">
-                    <h4>Mismatch Flags</h4>
-                    <div class="mismatch-list">
-                        <div class="mismatch-item">
-                            <span class="mismatch-x">✗</span>
-                            <span>Requires behavior you explicitly avoid</span>
-                        </div>
-                        <div class="mismatch-item">
-                            <span class="mismatch-x">✗</span>
-                            <span>Requires trust-building you cannot accelerate</span>
-                        </div>
-                        <div class="mismatch-item">
-                            <span class="mismatch-x">✗</span>
-                            <span>Requires ambiguity tolerance you lack</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    /* Pricing Section */
+        
+        /* Pricing Section */
         .pricing-section {
             max-width: 720px;
             margin: 0 auto;
@@ -1004,34 +701,8 @@
             color: var(--text-muted);
             font-size: 0.9375rem;
         }
-    <!-- PRICING -->
-    <section id="pricing">
-        <div class="pricing-section">
-            <h2>One assessment. One verdict.</h2>
-            
-            <p class="subtitle">
-                Most founders ignore structural mismatches.<br/>
-                The cost is usually paid in time, not money.
-            </p>
-            
-            <div class="price-box">
-                <div class="price">$37</div>
-                <p class="price-note">
-                    One-time · No refunds for disagreement<br/>
-                    PDF report delivered by email
-                </p>
-                <button class="btn-primary" onclick="alert('Payment integration coming soon')">
-                    Start Diagnostic — $37
-                </button>
-            </div>
-            
-            <p class="pricing-footer">
-                If you already know you'll ignore the signal, save your money.
-            </p>
-        </div>
-    </section>
-
-    /* FAQ Section */
+        
+        /* FAQ Section */
         .faq-section {
             max-width: 720px;
             margin: 0 auto;
@@ -1126,60 +797,8 @@
             color: white;
             transform: translateY(-1px);
         }
-    <!-- FAQ -->
-    <section id="faq" class="section-alt">
-        <div class="faq-section">
-            <h2>Frequently Asked Questions</h2>
-            
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFAQ(0)">
-                    What do I get exactly?
-                    <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
-                </button>
-                <div class="faq-answer">
-                    <p>You receive an immutable diagnostic report (PDF + on-screen) that includes your Primary GTM Shape, Misery Risk Level (Low/Medium/High), Time-to-Regret estimate, and explicit mismatch flags between your GTM requirements and your actual working patterns.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFAQ(1)">
-                    Is there a refund policy?
-                    <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
-                </button>
-                <div class="faq-answer">
-                    <p>No refunds for disagreement with the verdict. This is a deterministic diagnostic, not consulting. The same inputs produce the same verdict. If you're uncertain about committing to the diagnosis, save your $37.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFAQ(2)">
-                    How long does it take?
-                    <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
-                </button>
-                <div class="faq-answer">
-                    <p>The assessment takes approximately 10-15 minutes to complete. Your diagnostic report is generated immediately upon completion and delivered both on-screen and via email as a PDF.</p>
-                </div>
-            </div>
-            
-            <div class="faq-cta">
-                <a href="wht_faq_page.html" class="btn-secondary">
-                    View All FAQs
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    /* Footer */
+        
+        /* Footer */
         footer {
             background: var(--text-primary);
             color: var(--text-muted);
@@ -1258,105 +877,492 @@
         .footer-copyright {
             color: #525252;
         }
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-content">
-                <div class="footer-logo">Will I Hate This?</div>
-                
-                <div class="footer-links">
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Will I Hate This?</a>
+            
+            <div class="nav-right">
+                <div class="nav-links" id="navLinks">
                     <a href="#pricing">Pricing</a>
                     <a href="#faq">FAQ</a>
-                    <a href="privacy-policy">Privacy</a>
-                    <a href="contact">Contact</a>
-                    <a href="terms-of-service">Terms</a>
-                    <a href="/refund-policy">Refund Policy</a>
                 </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <div class="footer-built-by">
-                    Built with 
-                    <svg width="14" height="14" viewBox="0 0 24 24" style="display: inline-block; vertical-align: middle; fill: #ef4444; stroke: none; margin: 0 2px;">
-                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                    </svg> 
-                    by <a href="https://twitter.com/RealWichly" target="_blank" rel="noopener noreferrer">Wish✨</a>
+                
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                    <svg width="20" height="20" viewBox="0 0 24 24" id="moon-icon" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg width="20" height="20" viewBox="0 0 24 24" id="sun-icon" style="display: none;" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                
+                <div class="hamburger" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
-                <div class="footer-copyright">© 2026 Will I Hate This? All rights reserved.</div>
             </div>
         </div>
-    </footer>
+    </nav>
 
-    <script>
-        // Theme Toggle
-        function toggleTheme() {
-            const html = document.documentElement;
-            const moonIcon = document.getElementById('moon-icon');
-            const sunIcon = document.getElementById('sun-icon');
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-badge">
+            <div class="hero-badge-icon">
+                <svg width="10" height="10" viewBox="0 0 24 24" style="color: white;" fill="none" stroke="currentColor" stroke-width="3">
+                    <circle cx="12" cy="12" r="1"/>
+                </svg>
+            </div>
+            Pre-Mortem Diagnostic for Founders
+        </div>
+        
+        <h1>Will I Hate This?</h1>
+        
+        <p class="subtitle">
+            Discover whether what you're building is something you can realistically sell and sustain — before committing your time to the wrong go-to-market (GTM).
+        </p>
+        
+        <p class="meta-info">
+            Assessment Type: Founder—GTM Misery Risk Classification<br/>
+            Format: One-time diagnostic report (PDF + on-screen)
+        </p>
+        
+        <div class="hero-cta">
+            <button class="btn-primary" onclick="alert('Payment integration coming soon')">
+                Start Diagnostic
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </button>
+        </div>
+        
+        <p class="note">
+            One assessment. One verdict. PDF report delivered immediately.
+        </p>
+    </section>
+
+    <!-- PROBLEM CARDS -->
+    <section class="section-alt">
+        <div class="section">
+            <div class="grid-2col">
+                <div class="card">
+                    <div class="card-icon icon-check">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3>Most validation frameworks ask:</h3>
+                    <ul>
+                        <li>Is there a market?</li>
+                        <li>Will people pay?</li>
+                        <li>Can you build it?</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon icon-alert">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"> <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                    </svg>
+                </div>
+                <h3>They don't ask:</h3>
+                <ul>
+                    <li>Will the required GTM make you miserable?</li>
+                    <li>How long until you discover the mismatch?</li>
+                    <li>Are you building for the wrong founder (you)?</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="result-text">
+            <span class="result-strong">Result: You build something that works — but requires distribution behaviors you won't sustain.</span>
+            <span style="color: var(--text-muted);">You usually discover this 60—90 days in, after committing time and energy.</span>
+        </div>
+    </div>
+</section>
+
+<!-- REFRAME -->
+<section>
+    <div class="content-section">
+        <h2>Standard validation does not measure founder—GTM fit.</h2>
+        
+        <div class="text-content">
+            <p>Standard validation tells you <em>what</em> to build.</p>
             
-            if (html.getAttribute('data-theme') === 'dark') {
-                html.removeAttribute('data-theme');
-                moonIcon.style.display = 'block';
-                sunIcon.style.display = 'none';
-                localStorage.setItem('theme', 'light');
-            } else {
-                html.setAttribute('data-theme', 'dark');
-                moonIcon.style.display = 'none';
-                sunIcon.style.display = 'block';
-                localStorage.setItem('theme', 'dark');
-            }
+            <p>It doesn't tell you if you'll hate <em>how</em> you have to sell it.</p>
+            
+            <p class="callout">
+                The missing question:<br/>
+                "Will I hate the GTM this requires?"
+            </p>
+            
+            <p style="padding-top: 1rem;">That's what this diagnostic answers.</p>
+        </div>
+    </div>
+</section>
+
+<!-- WHAT THIS IS / IS NOT -->
+<section class="section-alt">
+    <div class="what-section">
+        <div class="grid-2col">
+            <div class="what-card">
+                <h3>
+                    <svg width="24" height="24" viewBox="0 0 24 24" style="color: #f59e0b;" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                    </svg>
+                    What This Is
+                </h3>
+                <ul>
+                    <li>
+                        <svg width="18" height="18" viewBox="0 0 24 24" style="color: #16a34a;" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>A Founder—GTM Misery Risk Diagnostic.</span>
+                    </li>
+                    <li>
+                        <svg width="18" height="18" viewBox="0 0 24 24" style="color: #16a34a;" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>You answer 18 fixed questions about your idea's structural GTM requirements, your actual working behaviors, and your historical tolerance patterns.</span>
+                    </li>
+                    <li>
+                        <svg width="18" height="18" viewBox="0 0 24 24" style="color: #16a34a;" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>You receive a deterministic diagnostic report with your Primary GTM Shape, Misery Risk Level, Time-to-Regret estimate, and explicit mismatch flags.</span>
+                    </li>
+                    <li>
+                        <span>Same inputs → same verdict. No iteration. No interpretation.</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="what-card">
+                <h3>
+                    <svg width="24" height="24" viewBox="0 0 24 24" style="color: #ef4444;" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line>
+                    </svg>
+                    What This Is NOT
+                </h3>
+                <ul>
+                    <li>
+                        <svg width="18" height="18" viewBox="0 0 24 24" style="color: #ef4444;" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                        <span>This diagnostic does not evaluate idea quality.</span>
+                    </li>
+                    <li>
+                        <svg width="18" height="18" viewBox="0 0 24 24" style="color: #ef4444;" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                        <span>It does not evaluate market size.</span>
+                    </li>
+                    <li>
+                        <svg width="18" height="18" viewBox="0 0 24 24" style="color: #ef4444;" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                        <span>It does not evaluate the likelihood of success.</span>
+                    </li>
+                    <li>
+                        <svg width="18" height="18" viewBox="0 0 24 24" style="color: #ef4444;" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                        <span>It does not tell you whether you should quit.</span>
+                    </li>
+                    <li>
+                        <span>It only classifies misalignment risk between what the GTM structurally requires and how you actually work.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DIAGNOSTIC METHOD -->
+<section>
+    <div class="steps-section">
+        <h2>Diagnostic Method</h2>
+        
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Answer 18 fixed questions</h4>
+                    <p>Structured inputs about your idea, GTM approach, and actual work patterns.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>System classifies GTM shape</h4>
+                    <p>Deterministic rules map your idea to one of five primary GTM patterns.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>System compares against founder profile</h4>
+                    <p>Your behavioral constraints are matched against GTM requirements.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4>System flags mismatch risk</h4>
+                    <p>Automatic detection of structural conflicts between GTM and founder tolerance.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h4>Fixed verdict generated</h4>
+                    <p>Immutable diagnostic report delivered on-screen and via email as PDF.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SAMPLE OUTPUT -->
+<section class="section-alt">
+    <div class="sample-section">
+        <div class="sample-intro">
+            <h2>Sample Diagnostic Output</h2>
+            <p>Example output from the diagnostic report, shown for format and structure only.</p>
+        </div>
+        
+        <div class="verdict-box">
+            <div class="verdict-header">
+                <div class="verdict-label">VERDICT</div>
+                <div class="verdict-title">Misery Risk: HIGH</div>
+                <p class="verdict-desc">Expected mismatch between GTM requirements and founder energy profile.</p>
+            </div>
+            
+            <div class="verdict-section">
+                <h4>Time-to-Regret: 60—120 days</h4>
+                <p>The point at which founders with similar profiles historically report avoidance, burnout, or abandonment.</p>
+            </div>
+            
+            <div class="verdict-section">
+                <h4>Mismatch Flags</h4>
+                <div class="mismatch-list">
+                    <div class="mismatch-item">
+                        <span class="mismatch-x">✗</span>
+                        <span>Requires behavior you explicitly avoid</span>
+                    </div>
+                    <div class="mismatch-item">
+                        <span class="mismatch-x">✗</span>
+                        <span>Requires trust-building you cannot accelerate</span>
+                    </div>
+                    <div class="mismatch-item">
+                        <span class="mismatch-x">✗</span>
+                        <span>Requires ambiguity tolerance you lack</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+    <div class="pricing-section">
+        <h2>One assessment. One verdict.</h2>
+        
+        <p class="subtitle">
+            Most founders ignore structural mismatches.<br/>
+            The cost is usually paid in time, not money.
+        </p>
+        
+        <div class="price-box">
+            <div class="price">$37</div>
+            <p class="price-note">
+                One-time · No refunds for disagreement<br/>
+                PDF report delivered by email
+            </p>
+            <button class="btn-primary" onclick="alert('Payment integration coming soon')">
+                Start Diagnostic — $37
+            </button>
+        </div>
+        
+        <p class="pricing-footer">
+            If you already know you'll ignore the signal, save your money.
+        </p>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="section-alt">
+    <div class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFAQ(0)">
+                What do I get exactly?
+                <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </button>
+            <div class="faq-answer">
+                <p>You receive an immutable diagnostic report (PDF + on-screen) that includes your Primary GTM Shape, Misery Risk Level (Low/Medium/High), Time-to-Regret estimate, and explicit mismatch flags between your GTM requirements and your actual working patterns.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFAQ(1)">
+                Is there a refund policy?
+                <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </button>
+            <div class="faq-answer">
+                <p>No refunds for disagreement with the verdict. This is a deterministic diagnostic, not consulting. The same inputs produce the same verdict. If you're uncertain about committing to the diagnosis, save your $37.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFAQ(2)">
+                How long does it take?
+                <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </button>
+            <div class="faq-answer">
+                <p>The assessment takes approximately 10-15 minutes to complete. Your diagnostic report is generated immediately upon completion and delivered both on-screen and via email as a PDF.</p>
+            </div>
+        </div>
+        
+        <div class="faq-cta">
+            <a href="wht_faq_page.html" class="btn-secondary">
+                View All FAQs
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="footer-logo">Will I Hate This?</div>
+            
+            <div class="footer-links">
+                <a href="#pricing">Pricing</a>
+                <a href="#faq">FAQ</a>
+                <a href="privacy-policy">Privacy</a>
+                <a href="contact">Contact</a>
+                <a href="terms-of-service">Terms</a>
+                <a href="/refund-policy">Refund Policy</a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-built-by">
+                Built with 
+                <svg width="14" height="14" viewBox="0 0 24 24" style="display: inline-block; vertical-align: middle; fill: #ef4444; stroke: none; margin: 0 2px;">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg> 
+                by <a href="https://twitter.com/RealWichly" target="_blank" rel="noopener noreferrer">Wish✨</a>
+            </div>
+            <div class="footer-copyright">© 2026 Will I Hate This? All rights reserved.</div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Theme Toggle
+    function toggleTheme() {
+        const html = document.documentElement;
+        const moonIcon = document.getElementById('moon-icon');
+        const sunIcon = document.getElementById('sun-icon');
+        
+        if (html.getAttribute('data-theme') === 'dark') {
+            html.removeAttribute('data-theme');
+            moonIcon.style.display = 'block';
+            sunIcon.style.display = 'none';
+            localStorage.setItem('theme', 'light');
+        } else {
+            html.setAttribute('data-theme', 'dark');
+            moonIcon.style.display = 'none';
+            sunIcon.style.display = 'block';
+            localStorage.setItem('theme', 'dark');
+        }
+    }
+    
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        document.getElementById('moon-icon').style.display = 'none';
+        document.getElementById('sun-icon').style.display = 'block';
+    }
+    
+    // Hamburger Menu Toggle
+    function toggleMenu() {
+        const navLinks = document.getElementById('navLinks');
+        navLinks.classList.toggle('active');
+    }
+    
+    // FAQ Toggle
+    let currentFAQ = null;
+    
+    function toggleFAQ(index) {
+        const allAnswers = document.querySelectorAll('.faq-answer');
+        const allIcons = document.querySelectorAll('.faq-icon');
+        const answer = allAnswers[index];
+        const icon = allIcons[index];
+        
+        // Close previously open FAQ if different
+        if (currentFAQ !== null && currentFAQ !== index) {
+            allAnswers[currentFAQ].classList.remove('active');
+            allIcons[currentFAQ].classList.remove('active');
         }
         
-        // Load saved theme
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            document.getElementById('moon-icon').style.display = 'none';
-            document.getElementById('sun-icon').style.display = 'block';
+        // Toggle current FAQ
+        answer.classList.toggle('active');
+        icon.classList.toggle('active');
+        
+        // Update current FAQ tracker
+        if (answer.classList.contains('active')) {
+            currentFAQ = index;
+        } else {
+            currentFAQ = null;
         }
-        
-        // Hamburger Menu Toggle
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
-        
-        // FAQ Toggle
-        let currentFAQ = null;
-        
-        function toggleFAQ(index) {
-            const allAnswers = document.querySelectorAll('.faq-answer');
-            const allIcons = document.querySelectorAll('.faq-icon');
-            const answer = allAnswers[index];
-            const icon = allIcons[index];
-            
-            // Close previously open FAQ if different
-            if (currentFAQ !== null && currentFAQ !== index) {
-                allAnswers[currentFAQ].classList.remove('active');
-                allIcons[currentFAQ].classList.remove('active');
-            }
-            
-            // Toggle current FAQ
-            answer.classList.toggle('active');
-            icon.classList.toggle('active');
-            
-            // Update current FAQ tracker
-            if (answer.classList.contains('active')) {
-                currentFAQ = index;
-            } else {
-                currentFAQ = null;
-            }
-        }
-        
-        // Close mobile menu when clicking nav links
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.getElementById('navLinks').classList.remove('active');
-            });
+    }
+    
+    // Close mobile menu when clicking nav links
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', function() {
+            document.getElementById('navLinks').classList.remove('active');
         });
-    </script>
-
-</body>
+    });
+  </script> 
+  </body>
 </html>
-    
-    
+                            
