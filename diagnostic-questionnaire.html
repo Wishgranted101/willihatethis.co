@@ -187,7 +187,8 @@
             background: var(--accent-bg);
         }
         
-        .answer-option input[type="radio"] {
+        .answer-option input[type="radio"],
+        .answer-option input[type="checkbox"] {
             position: absolute;
             opacity: 0;
             cursor: pointer;
@@ -203,7 +204,8 @@
             position: relative;
         }
         
-        .answer-label::before {
+        /* Radio button styling */
+        .answer-option input[type="radio"] + .answer-label::before {
             content: '';
             position: absolute;
             left: 0;
@@ -215,12 +217,12 @@
             transition: all 0.2s;
         }
         
-        .answer-option.selected .answer-label::before {
+        .answer-option.selected input[type="radio"] + .answer-label::before {
             border-color: var(--accent);
             background: var(--accent);
         }
         
-        .answer-option.selected .answer-label::after {
+        .answer-option.selected input[type="radio"] + .answer-label::after {
             content: '';
             position: absolute;
             left: 6px;
@@ -229,6 +231,36 @@
             height: 6px;
             background: white;
             border-radius: 50%;
+        }
+        
+        /* Checkbox styling */
+        .answer-option input[type="checkbox"] + .answer-label::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.2rem;
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--border);
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        
+        .answer-option.selected input[type="checkbox"] + .answer-label::before {
+            border-color: var(--accent);
+            background: var(--accent);
+        }
+        
+        .answer-option.selected input[type="checkbox"] + .answer-label::after {
+            content: '';
+            position: absolute;
+            left: 4px;
+            top: 0.5rem;
+            width: 10px;
+            height: 6px;
+            border-left: 2px solid white;
+            border-bottom: 2px solid white;
+            transform: rotate(-45deg);
         }
         
         @media (max-width: 768px) {
@@ -622,11 +654,20 @@
 
         let currentQuestion = 0;
         let selectedAnswer = null;
+        let selectedAnswers = []; // For multi-select questions
         let answers = [];
+        
+        // Questions that allow multiple selections
+        const multiSelectQuestions = {
+            7: { max: 2, min: 1 },  // Question 8 (index 7): up to 2
+            8: { max: 3, min: 1 }   // Question 9 (index 8): up to 3
+        };
 
         // Load question
         function loadQuestion(index) {
             const q = questions[index];
+            const isMultiSelect = multiSelectQuestions[index];
+            
             document.getElementById('progressText').textContent = `Question ${index + 1} of ${questions.length}`;
             document.getElementById('questionText').textContent = q.question;
             
@@ -636,10 +677,10 @@
             q.answers.forEach((answer, i) => {
                 const div = document.createElement('div');
                 div.className = 'answer-option';
-                div.onclick = () => selectAnswer(i);
+                div.onclick = () => selectAnswer(i, isMultiSelect);
                 
                 const input = document.createElement('input');
-                input.type = 'radio';
+                input.type = isMultiSelect ? 'checkbox' : 'radio';
                 input.name = 'answer';
                 input.id = `answer${i}`;
                 
@@ -654,25 +695,61 @@
             });
             
             selectedAnswer = null;
+            selectedAnswers = [];
             document.getElementById('nextBtn').classList.remove('enabled');
             document.getElementById('errorMessage').classList.remove('visible');
         }
 
         // Select answer
-        function selectAnswer(index) {
-            selectedAnswer = index;
-            
-            // Update UI
-            document.querySelectorAll('.answer-option').forEach((opt, i) => {
-                if (i === index) {
-                    opt.classList.add('selected');
+        function selectAnswer(index, isMultiSelect) {
+            if (isMultiSelect) {
+                // Multi-select logic
+                const answerIndex = selectedAnswers.indexOf(index);
+                
+                if (answerIndex > -1) {
+                    // Deselect
+                    selectedAnswers.splice(answerIndex, 1);
                 } else {
-                    opt.classList.remove('selected');
+                    // Select if under max limit
+                    if (selectedAnswers.length < isMultiSelect.max) {
+                        selectedAnswers.push(index);
+                    } else {
+                        return; // Max selections reached
+                    }
                 }
-            });
-            
-            // Enable next button
-            document.getElementById('nextBtn').classList.add('enabled');
+                
+                // Update UI
+                document.querySelectorAll('.answer-option').forEach((opt, i) => {
+                    if (selectedAnswers.includes(i)) {
+                        opt.classList.add('selected');
+                    } else {
+                        opt.classList.remove('selected');
+                    }
+                });
+                
+                // Enable next if minimum met
+                if (selectedAnswers.length >= isMultiSelect.min) {
+                    document.getElementById('nextBtn').classList.add('enabled');
+                } else {
+                    document.getElementById('nextBtn').classList.remove('enabled');
+                }
+                
+            } else {
+                // Single select logic
+                selectedAnswer = index;
+                
+                // Update UI
+                document.querySelectorAll('.answer-option').forEach((opt, i) => {
+                    if (i === index) {
+                        opt.classList.add('selected');
+                    } else {
+                        opt.classList.remove('selected');
+                    }
+                });
+                
+                // Enable next button
+                document.getElementById('nextBtn').classList.add('enabled');
+            }
             
             // Show autosave
             const indicator = document.getElementById('autosaveIndicator');
@@ -687,17 +764,31 @@
 
         // Next question
         function nextQuestion() {
-            if (selectedAnswer === null) {
-                // Show error
-                document.getElementById('errorMessage').classList.add('visible');
-                setTimeout(() => {
-                    document.getElementById('errorMessage').classList.remove('visible');
-                }, 3000);
-                return;
-            }
+            const isMultiSelect = multiSelectQuestions[currentQuestion];
             
-            // Save answer
-            answers[currentQuestion] = selectedAnswer;
+            if (isMultiSelect) {
+                if (selectedAnswers.length < isMultiSelect.min) {
+                    // Show error
+                    document.getElementById('errorMessage').classList.add('visible');
+                    setTimeout(() => {
+                        document.getElementById('errorMessage').classList.remove('visible');
+                    }, 3000);
+                    return;
+                }
+                // Save multi-select answers
+                answers[currentQuestion] = [...selectedAnswers];
+            } else {
+                if (selectedAnswer === null) {
+                    // Show error
+                    document.getElementById('errorMessage').classList.add('visible');
+                    setTimeout(() => {
+                        document.getElementById('errorMessage').classList.remove('visible');
+                    }, 3000);
+                    return;
+                }
+                // Save single answer
+                answers[currentQuestion] = selectedAnswer;
+            }
             
             // Move to next question
             if (currentQuestion < questions.length - 1) {
