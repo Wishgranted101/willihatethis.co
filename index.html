@@ -15,32 +15,33 @@
         
         :root {
             --bg-primary: #ffffff;
-            --bg-secondary: #f9fafb;
-            --text-primary: #111827;
-            --text-secondary: #4b5563;
-            --text-muted: #6b7280;
-            --border: #e5e7eb;
+            --bg-secondary: #fafafa;
+            --text-primary: #000000;
+            --text-secondary: #525252;
+            --text-muted: #737373;
+            --border: #e5e5e5;
             --accent: #2563eb;
             --accent-hover: #1d4ed8;
         }
         
         [data-theme="dark"] {
-            --bg-primary: #111827;
-            --bg-secondary: #1f2937;
-            --text-primary: #f9fafb;
-            --text-secondary: #d1d5db;
-            --text-muted: #9ca3af;
-            --border: #374151;
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #171717;
+            --text-primary: #fafafa;
+            --text-secondary: #a3a3a3;
+            --text-muted: #737373;
+            --border: #262626;
             --accent: #3b82f6;
             --accent-hover: #60a5fa;
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, sans-serif;
             line-height: 1.6;
             color: var(--text-primary);
             background: var(--bg-primary);
             transition: background 0.3s, color 0.3s;
+            -webkit-font-smoothing: antialiased;
         }
         
         html {
@@ -56,28 +57,35 @@
             top: 0;
             z-index: 100;
             transition: background 0.3s, border 0.3s;
+            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, 0.8);
+        }
+        
+        [data-theme="dark"] nav {
+            background: rgba(10, 10, 10, 0.8);
         }
         
         .nav-container {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         
         .nav-logo {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--accent);
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
             text-decoration: none;
+            letter-spacing: -0.02em;
         }
         
         .nav-right {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
+            gap: 2rem;
         }
         
         .theme-toggle {
@@ -85,9 +93,14 @@
             border: none;
             cursor: pointer;
             padding: 0.5rem;
-            color: var(--text-primary);
+            color: var(--text-secondary);
             display: flex;
             align-items: center;
+            transition: color 0.2s;
+        }
+        
+        .theme-toggle:hover {
+            color: var(--text-primary);
         }
         
         .hamburger {
@@ -99,10 +112,11 @@
         }
         
         .hamburger span {
-            width: 24px;
+            width: 20px;
             height: 2px;
             background: var(--text-primary);
             transition: 0.3s;
+            border-radius: 2px;
         }
         
         .nav-links {
@@ -115,16 +129,25 @@
             color: var(--text-secondary);
             text-decoration: none;
             font-weight: 500;
+            font-size: 0.9375rem;
             transition: color 0.2s;
         }
         
         .nav-links a:hover {
-            color: var(--accent);
+            color: var(--text-primary);
         }
         
         @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1.5rem;
+            }
+            
             .hamburger {
                 display: flex;
+            }
+            
+            .nav-right {
+                gap: 1rem;
             }
             
             .nav-links {
@@ -133,110 +156,121 @@
                 right: 0;
                 background: var(--bg-primary);
                 flex-direction: column;
-                padding: 1rem;
-                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                padding: 1.5rem;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.1);
                 display: none;
-                min-width: 150px;
+                min-width: 180px;
                 border: 1px solid var(--border);
+                border-top: none;
+                align-items: flex-start;
             }
             
             .nav-links.active {
                 display: flex;
             }
         }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-        
-        .container-sm {
-            max-width: 672px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-        
-        .container-md {
-            max-width: 896px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-        
         /* Hero Section */
         .hero {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 8rem 2rem 6rem;
             text-align: center;
-            padding: 6rem 1.5rem 4rem;
         }
         
-        .logo-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 2rem;
+        @media (max-width: 768px) {
+            .hero {
+                padding: 5rem 1.5rem 4rem;
+            }
         }
         
-        .logo {
-            position: relative;
-            width: 64px;
-            height: 64px;
-            background: var(--accent);
-            border-radius: 1rem;
-            display: flex;
+        .hero-badge {
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            gap: 0.5rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-weight: 500;
         }
         
-        .logo-badge {
-            position: absolute;
-            width: 24px;
-            height: 24px;
-            background: #f59e0b;
+        .hero-badge-icon {
+            width: 18px;
+            height: 18px;
+            background: var(--accent);
             border-radius: 50%;
-            top: -4px;
-            right: -4px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
         
         h1 {
-            font-size: 2.5rem;
+            font-size: 3.5rem;
             font-weight: 700;
-            margin-bottom: 1rem;
-            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.25rem;
+            }
         }
         
         .subtitle {
-            font-size: 1.125rem;
+            font-size: 1.25rem;
             color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        @media (max-width: 768px) {
+            .subtitle {
+                font-size: 1.125rem;
+            }
         }
         
         .meta-info {
-            font-size: 0.875rem;
+            font-size: 0.9375rem;
             color: var(--text-muted);
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        .hero-cta {
+            margin-top: 2.5rem;
         }
         
         .btn-primary {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             background: var(--accent);
             color: white;
-            padding: 0.875rem 2rem;
+            padding: 1rem 2rem;
             border-radius: 0.5rem;
-            font-size: 1.0625rem;
+            font-size: 1rem;
             font-weight: 600;
             text-decoration: none;
             border: none;
             cursor: pointer;
-            transition: background 0.2s;
+            transition: all 0.2s;
             box-shadow: 0 1px 2px rgba(0,0,0,0.05);
         }
         
         .btn-primary:hover {
             background: var(--accent-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
         }
         
         .note {
@@ -244,451 +278,7 @@
             color: var(--text-muted);
             margin-top: 1rem;
         }
-        
-        /* Grid Cards */
-        .section-gray {
-            background: var(--bg-secondary);
-            padding: 4rem 0;
-            transition: background 0.3s;
-        }
-        
-        .section-white {
-            background: var(--bg-primary);
-            padding: 4rem 0;
-            transition: background 0.3s;
-        }
-        
-        .grid-2col {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        
-        @media (min-width: 768px) {
-            .grid-2col {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-        
-        .card {
-            background: var(--bg-primary);
-            border: 1px solid var(--border);
-            border-radius: 0.75rem;
-            padding: 2rem;
-            transition: background 0.3s, border 0.3s;
-        }
-        
-        .card-icon {
-            width: 48px;
-            height: 48px;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 0.5rem;
-        }
-        
-        .icon-check {
-            background: #dcfce7;
-            color: #16a34a;
-        }
-        
-        .icon-alert {
-            background: #fef3c7;
-            color: #d97706;
-        }
-        
-        .card h3 {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .card ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .card li {
-            padding: 0.5rem 0;
-            color: var(--text-secondary);
-            line-height: 1.5;
-            display: flex;
-            align-items: start;
-            gap: 0.5rem;
-        }
-        
-        .card li svg {
-            flex-shrink: 0;
-            margin-top: 0.15rem;
-        }
-        
-        .result-text {
-            font-size: 1.0625rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-top: 2rem;
-        }
-        
-        .result-strong {
-            font-weight: 500;
-            color: var(--text-primary);
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-        
-        h2 {
-            font-size: 1.875rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            color: var(--text-primary);
-        }
-        
-        .text-content {
-            font-size: 1.0625rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-        
-        .text-content p {
-            margin-bottom: 1rem;
-        }
-        
-        .callout {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            border-left: 4px solid var(--accent);
-            padding: 1rem 0 1rem 1.5rem;
-            margin: 1.5rem 0;
-        }
-        
-        /* What This Is/Not */
-        .column h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .column p {
-            margin-bottom: 0.75rem;
-            line-height: 1.6;
-            color: var(--text-secondary);
-        }
-        
-        /* Steps */
-        .steps {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        
-        .step {
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .step-number {
-            flex-shrink: 0;
-            width: 36px;
-            height: 36px;
-            background: var(--accent);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 0.875rem;
-        }
-        
-        .step h4 {
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.25rem;
-            font-size: 1rem;
-        }
-        
-        .step p {
-            color: var(--text-secondary);
-            font-size: 0.9375rem;
-            line-height: 1.5;
-        }
-        
-        /* Verdict Preview */
-        .verdict-box {
-            background: var(--bg-primary);
-            border: 2px solid var(--border);
-            border-radius: 0.5rem;
-            padding: 1.5rem;
-            transition: background 0.3s, border 0.3s;
-        }
-        
-        .verdict-header {
-            border-left: 4px solid #ef4444;
-            padding: 1rem 1.25rem;
-            background: #fef2f2;
-            margin-bottom: 1.25rem;
-        }
-        
-        [data-theme="dark"] .verdict-header {
-            background: rgba(239, 68, 68, 0.1);
-        }
-        
-        .verdict-label {
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: #dc2626;
-            margin-bottom: 0.25rem;
-            text-transform: uppercase;
-        }
-        
-        .verdict-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #dc2626;
-        }
-        
-        .verdict-desc {
-            color: var(--text-secondary);
-            margin-top: 0.5rem;
-            font-size: 0.9375rem;
-        }
-        
-        .verdict-section {
-            margin-bottom: 1.25rem;
-        }
-        
-        .verdict-section h4 {
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-            font-size: 0.9375rem;
-        }
-        
-        .verdict-section p {
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-            line-height: 1.5;
-        }
-        
-        .mismatch-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-        }
-        
-        .mismatch-item {
-            display: flex;
-            align-items: start;
-            gap: 0.5rem;
-        }
-        
-        .mismatch-x {
-            color: #ef4444;
-            font-weight: 700;
-        }
-        
-        /* Pricing Section */
-        .pricing-section {
-            text-align: center;
-            padding: 4rem 1.5rem;
-        }
-        
-        .price-box {
-            background: var(--bg-primary);
-            border: 2px solid var(--border);
-            border-radius: 0.75rem;
-            padding: 2rem;
-            max-width: 400px;
-            margin: 0 auto 2rem;
-            transition: background 0.3s, border 0.3s;
-        }
-        
-        .price {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-        }
-        
-        .price-note {
-            color: var(--text-muted);
-            font-size: 0.9375rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        /* FAQ Section */
-        .faq-section {
-            padding: 4rem 0;
-        }
-        
-        .faq-item {
-            border: 1px solid var(--border);
-            border-radius: 0.5rem;
-            margin-bottom: 1rem;
-            overflow: hidden;
-            background: var(--bg-primary);
-            transition: background 0.3s, border 0.3s;
-        }
-        
-        .faq-question {
-            width: 100%;
-            text-align: left;
-            padding: 1.25rem 1.5rem;
-            background: var(--bg-primary);
-            border: none;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background 0.3s;
-        }
-        
-        .faq-question:hover {
-            background: var(--bg-secondary);
-        }
-        
-        .faq-answer {
-            padding: 0 1.5rem;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-        }
-        
-        .faq-answer.active {
-            padding: 1rem 1.5rem 1.5rem;
-            max-height: 500px;
-        }
-        
-        .faq-answer p {
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-        
-        .faq-icon {
-            transition: transform 0.3s;
-        }
-        
-        .faq-icon.active {
-            transform: rotate(180deg);
-        }
-        
-        /* Footer */
-        footer {
-            background: #111827;
-            color: #9ca3af;
-            padding: 3rem 0 1rem;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        @media (min-width: 768px) {
-            .footer-content {
-                flex-direction: row;
-                justify-content: space-between;
-            }
-        }
-        
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-        
-        .footer-logo-icon {
-            width: 32px;
-            height: 32px;
-            background: #2563eb;
-            border-radius: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .footer-logo-text {
-            font-size: 1rem;
-            font-weight: 700;
-            color: white;
-        }
-        
-        .footer-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            font-size: 0.875rem;
-        }
-        
-        .footer-links a {
-            color: #9ca3af;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        
-        .footer-links a:hover {
-            color: white;
-        }
-        
-        .footer-copyright {
-            text-align: center;
-            margin-top: 2rem;
-            font-size: 0.875rem;
-            color: #6b7280;
-            padding-top: 1rem;
-            border-top: 1px solid #1f2937;
-        }
-        
-        .footer-built-by {
-            margin-bottom: 0.5rem;
-        }
-        
-        .footer-built-by a {
-            color: #9ca3af;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        
-        .footer-built-by a:hover {
-            color: white;
-        }
-        
-        /* SVG Icons */
-        svg {
-            fill: none;
-            stroke: currentColor;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-        
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .hero {
-                padding: 4rem 1.5rem 3rem;
-            }
-        }
-    </style>
+        </style>
 </head>
 <body>
 
@@ -698,11 +288,16 @@
             <a href="#" class="nav-logo">Will I Hate This?</a>
             
             <div class="nav-right">
+                <div class="nav-links" id="navLinks">
+                    <a href="#pricing">Pricing</a>
+                    <a href="#faq">FAQ</a>
+                </div>
+                
                 <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
-                    <svg width="20" height="20" viewBox="0 0 24 24" id="moon-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" id="moon-icon" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg width="20" height="20" viewBox="0 0 24 24" id="sun-icon" style="display: none;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" id="sun-icon" style="display: none;" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="12" cy="12" r="5"></circle>
                         <line x1="12" y1="1" x2="12" y2="3"></line>
                         <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -720,37 +315,25 @@
                     <span></span>
                     <span></span>
                 </div>
-                
-                <div class="nav-links" id="navLinks">
-                    <a href="#pricing">Pricing</a>
-                    <a href="#faq">FAQ</a>
-                </div>
             </div>
         </div>
     </nav>
 
     <!-- HERO -->
     <section class="hero">
-        <div class="logo-container">
-            <div class="logo">
-                <svg width="40" height="40" viewBox="0 0 24 24" style="color: white;">
-                    <circle cx="12" cy="12" r="10"/>
-                    <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+        <div class="hero-badge">
+            <div class="hero-badge-icon">
+                <svg width="10" height="10" viewBox="0 0 24 24" style="color: white;" fill="none" stroke="currentColor" stroke-width="3">
+                    <circle cx="12" cy="12" r="1"/>
                 </svg>
-                <div class="logo-badge">
-                    <svg width="14" height="14" viewBox="0 0 24 24" style="color: white;">
-                        <circle cx="12" cy="12" r="10"/>
-                        <line x1="12" y1="8" x2="12" y2="12"/>
-                        <line x1="12" y1="16" x2="12.01" y2="16"/>
-                    </svg>
-                </div>
             </div>
+            Pre-Mortem Diagnostic for Founders
         </div>
         
-        <h1> A Pre-mortem Diagnostic for Founders</h1>
+        <h1>Will I Hate This?</h1>
         
         <p class="subtitle">
-           Discover whether what you’re building is something you can realistically sell and sustain — before committing your time to the wrong go-to-market (GTM).
+            Discover whether what you're building is something you can realistically sell and sustain — before committing your time to the wrong go-to-market (GTM).
         </p>
         
         <p class="meta-info">
@@ -758,22 +341,137 @@
             Format: One-time diagnostic report (PDF + on-screen)
         </p>
         
-        <button class="btn-primary" onclick="alert('Payment integration coming soon')">
-            Start Diagnostic —>
-        </button>
+        <div class="hero-cta">
+            <button class="btn-primary" onclick="alert('Payment integration coming soon')">
+                Start Diagnostic
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </button>
+        </div>
         
         <p class="note">
             One assessment. One verdict. PDF report delivered immediately.
         </p>
     </section>
-
+    
+    /* Sections */
+        .section {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .section {
+                padding: 4rem 1.5rem;
+            }
+        }
+        
+        .section-alt {
+            background: var(--bg-secondary);
+        }
+        
+        /* Grid */
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        @media (min-width: 768px) {
+            .grid-2col {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+        }
+        
+        /* Cards */
+        .card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            transition: all 0.3s;
+        }
+        
+        .card:hover {
+            border-color: var(--text-muted);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.75rem;
+        }
+        
+        .icon-check {
+            background: #f0fdf4;
+            color: #16a34a;
+        }
+        
+        [data-theme="dark"] .icon-check {
+            background: rgba(22, 163, 74, 0.1);
+        }
+        
+        .icon-alert {
+            background: #fef3c7;
+            color: #d97706;
+        }
+        
+        [data-theme="dark"] .icon-alert {
+            background: rgba(217, 119, 6, 0.1);
+        }
+        
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
+        }
+        
+        .card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .card li {
+            padding: 0.75rem 0;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: 0.9375rem;
+        }
+        
+        .result-text {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .result-strong {
+            font-weight: 600;
+            color: var(--text-primary);
+            display: block;
+            margin-bottom: 0.75rem;
+        }
     <!-- PROBLEM CARDS -->
-    <section class="section-gray">
-        <div class="container-md">
+    <section class="section-alt">
+        <div class="section">
             <div class="grid-2col">
                 <div class="card">
                     <div class="card-icon icon-check">
-                        <svg width="24" height="24" viewBox="0 0 24 24">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                         </svg>
                     </div>
@@ -787,7 +485,7 @@
                 
                 <div class="card">
                     <div class="card-icon icon-alert">
-                        <svg width="24" height="24" viewBox="0 0 24 24">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
                         </svg>
                     </div>
@@ -806,10 +504,71 @@
             </div>
         </div>
     </section>
-
+    
+    /* Content Sections */
+    
+        .content-section {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 4rem 1.5rem;
+            }
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+        
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        .text-content {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        
+        .text-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .text-content em {
+            font-style: italic;
+            color: var(--text-primary);
+        }
+        
+        .callout {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem 0 1.5rem 2rem;
+            margin: 2.5rem 0;
+            line-height: 1.4;
+            letter-spacing: -0.01em;
+        }
+        
+        @media (max-width: 768px) {
+            .callout {
+                font-size: 1.25rem;
+                padding: 1.25rem 0 1.25rem 1.5rem;
+            }
+        }
     <!-- REFRAME -->
-    <section class="section-white">
-        <div class="container-sm">
+    <section>
+        <div class="content-section">
             <h2>Standard validation does not measure founder—GTM fit.</h2>
             
             <div class="text-content">
@@ -827,45 +586,97 @@
         </div>
     </section>
 
-   <!-- WHAT THIS IS / IS NOT -->
-    <section class="section-gray">
-        <div class="container">
+    /* What This Is Section */
+        .what-section {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+        
+        .what-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            height: 100%;
+        }
+        
+        .what-card h3 {
+            font-size: 1.375rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-primary);
+        }
+        
+        .what-card ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .what-card li {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: 0.9375rem;
+            display: flex;
+            align-items: start;
+            gap: 0.75rem;
+        }
+        
+        .what-card li svg {
+            flex-shrink: 0;
+            margin-top: 0.15rem;
+        }
+        
+        .what-card li:last-child {
+            font-weight: 500;
+            color: var(--text-primary);
+            padding-top: 0.5rem;
+        }
+    <!-- WHAT THIS IS / IS NOT -->
+    <section class="section-alt">
+        <div class="what-section">
             <div class="grid-2col">
-                <div class="card">
+                <div class="what-card">
                     <h3>
-                        <svg width="24" height="24" viewBox="0 0 24 24" style="color: #f59e0b;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" style="color: #f59e0b;" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
                         </svg>
                         What This Is
                     </h3>
                     <ul>
                         <li>
-                            <svg width="18" height="18" viewBox="0 0 24 24" style="color: #16a34a;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" style="color: #16a34a;" fill="none" stroke="currentColor" stroke-width="2.5">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                             <span>A Founder—GTM Misery Risk Diagnostic.</span>
                         </li>
                         <li>
-                            <svg width="18" height="18" viewBox="0 0 24 24" style="color: #16a34a;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" style="color: #16a34a;" fill="none" stroke="currentColor" stroke-width="2.5">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                             <span>You answer 18 fixed questions about your idea's structural GTM requirements, your actual working behaviors, and your historical tolerance patterns.</span>
                         </li>
                         <li>
-                            <svg width="18" height="18" viewBox="0 0 24 24" style="color: #16a34a;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" style="color: #16a34a;" fill="none" stroke="currentColor" stroke-width="2.5">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                             <span>You receive a deterministic diagnostic report with your Primary GTM Shape, Misery Risk Level, Time-to-Regret estimate, and explicit mismatch flags.</span>
                         </li>
-                        <li style="font-weight: 500; color: var(--text-primary); padding-top: 0.5rem;">
+                        <li>
                             <span>Same inputs → same verdict. No iteration. No interpretation.</span>
                         </li>
                     </ul>
                 </div>
                 
-                <div class="card">
+                <div class="what-card">
                     <h3>
-                        <svg width="24" height="24" viewBox="0 0 24 24" style="color: #ef4444;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" style="color: #ef4444;" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="12" cy="12" r="10"></circle>
                             <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line>
                         </svg>
@@ -873,34 +684,34 @@
                     </h3>
                     <ul>
                         <li>
-                            <svg width="18" height="18" viewBox="0 0 24 24" style="color: #ef4444;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" style="color: #ef4444;" fill="none" stroke="currentColor" stroke-width="2.5">
                                 <line x1="18" y1="6" x2="6" y2="18"></line>
                                 <line x1="6" y1="6" x2="18" y2="18"></line>
                             </svg>
                             <span>This diagnostic does not evaluate idea quality.</span>
                         </li>
                         <li>
-                            <svg width="18" height="18" viewBox="0 0 24 24" style="color: #ef4444;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" style="color: #ef4444;" fill="none" stroke="currentColor" stroke-width="2.5">
                                 <line x1="18" y1="6" x2="6" y2="18"></line>
                                 <line x1="6" y1="6" x2="18" y2="18"></line>
                             </svg>
                             <span>It does not evaluate market size.</span>
                         </li>
                         <li>
-                            <svg width="18" height="18" viewBox="0 0 24 24" style="color: #ef4444;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" style="color: #ef4444;" fill="none" stroke="currentColor" stroke-width="2.5">
                                 <line x1="18" y1="6" x2="6" y2="18"></line>
                                 <line x1="6" y1="6" x2="18" y2="18"></line>
                             </svg>
                             <span>It does not evaluate the likelihood of success.</span>
                         </li>
                         <li>
-                            <svg width="18" height="18" viewBox="0 0 24 24" style="color: #ef4444;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" style="color: #ef4444;" fill="none" stroke="currentColor" stroke-width="2.5">
                                 <line x1="18" y1="6" x2="6" y2="18"></line>
                                 <line x1="6" y1="6" x2="18" y2="18"></line>
                             </svg>
                             <span>It does not tell you whether you should quit.</span>
                         </li>
-                        <li style="font-weight: 500; padding-top: 0.5rem;">
+                        <li>
                             <span>It only classifies misalignment risk between what the GTM structurally requires and how you actually work.</span>
                         </li>
                     </ul>
@@ -908,16 +719,62 @@
             </div>
         </div>
     </section>
-
+    /* Steps Section */
+        .steps-section {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+        
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .step {
+            display: flex;
+            gap: 1.5rem;
+            align-items: start;
+        }
+        
+        .step-number {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.875rem;
+        }
+        
+        .step-content h4 {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.0625rem;
+            letter-spacing: -0.01em;
+        }
+        
+        .step-content p {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+            line-height: 1.6;
+        }
     <!-- DIAGNOSTIC METHOD -->
-    <section class="section-white">
-        <div class="container-sm">
+    <section>
+        <div class="steps-section">
             <h2>Diagnostic Method</h2>
             
             <div class="steps">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <div>
+                    <div class="step-content">
                         <h4>Answer 18 fixed questions</h4>
                         <p>Structured inputs about your idea, GTM approach, and actual work patterns.</p>
                     </div>
@@ -925,7 +782,7 @@
                 
                 <div class="step">
                     <div class="step-number">2</div>
-                    <div>
+                    <div class="step-content">
                         <h4>System classifies GTM shape</h4>
                         <p>Deterministic rules map your idea to one of five primary GTM patterns.</p>
                     </div>
@@ -933,7 +790,7 @@
                 
                 <div class="step">
                     <div class="step-number">3</div>
-                    <div>
+                    <div class="step-content">
                         <h4>System compares against founder profile</h4>
                         <p>Your behavioral constraints are matched against GTM requirements.</p>
                     </div>
@@ -941,7 +798,7 @@
                 
                 <div class="step">
                     <div class="step-number">4</div>
-                    <div>
+                    <div class="step-content">
                         <h4>System flags mismatch risk</h4>
                         <p>Automatic detection of structural conflicts between GTM and founder tolerance.</p>
                     </div>
@@ -949,7 +806,7 @@
                 
                 <div class="step">
                     <div class="step-number">5</div>
-                    <div>
+                    <div class="step-content">
                         <h4>Fixed verdict generated</h4>
                         <p>Immutable diagnostic report delivered on-screen and via email as PDF.</p>
                     </div>
@@ -958,14 +815,117 @@
         </div>
     </section>
 
+    /* Sample Output Section */
+        .sample-section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+        
+        .sample-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .sample-intro h2 {
+            margin-bottom: 1rem;
+        }
+        
+        .sample-intro p {
+            color: var(--text-muted);
+            font-size: 0.9375rem;
+        }
+        
+        .verdict-box {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            transition: background 0.3s, border 0.3s;
+        }
+        
+        .verdict-header {
+            border-left: 4px solid #ef4444;
+            padding: 1.5rem 2rem;
+            background: #fef2f2;
+            margin-bottom: 2rem;
+            border-radius: 0.5rem;
+        }
+        
+        [data-theme="dark"] .verdict-header {
+            background: rgba(239, 68, 68, 0.1);
+        }
+        
+        .verdict-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #dc2626;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .verdict-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #dc2626;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+        }
+        
+        .verdict-desc {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+            line-height: 1.6;
+        }
+        
+        .verdict-section {
+            margin-bottom: 2rem;
+        }
+        
+        .verdict-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .verdict-section h4 {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            font-size: 1.0625rem;
+        }
+        
+        .verdict-section p {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+            line-height: 1.6;
+        }
+        
+        .mismatch-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .mismatch-item {
+            display: flex;
+            align-items: start;
+            gap: 0.75rem;
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+        }
+        
+        .mismatch-x {
+            color: #ef4444;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
     <!-- SAMPLE OUTPUT -->
-    <section class="section-gray">
-        <div class="container-md">
-            <h2 style="text-align: center;">Sample Diagnostic Output</h2>
-            
-            <p style="text-align: center; color: var(--text-muted); margin-bottom: 2rem; font-size: 0.875rem;">
-                Example output from the diagnostic report, shown for format and structure only.
-            </p>
+    <section class="section-alt">
+        <div class="sample-section">
+            <div class="sample-intro">
+                <h2>Sample Diagnostic Output</h2>
+                <p>Example output from the diagnostic report, shown for format and structure only.</p>
+            </div>
             
             <div class="verdict-box">
                 <div class="verdict-header">
@@ -1000,9 +960,53 @@
         </div>
     </section>
 
+    /* Pricing Section */
+        .pricing-section {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+        
+        .pricing-section h2 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .pricing-section .subtitle {
+            margin-bottom: 3rem;
+        }
+        
+        .price-box {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 3rem 2.5rem;
+            margin: 0 auto 2rem;
+            transition: background 0.3s, border 0.3s;
+        }
+        
+        .price {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .price-note {
+            color: var(--text-muted);
+            font-size: 0.9375rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .pricing-footer {
+            color: var(--text-muted);
+            font-size: 0.9375rem;
+        }
     <!-- PRICING -->
-    <section id="pricing" class="pricing-section section-white">
-        <div class="container-sm">
+    <section id="pricing">
+        <div class="pricing-section">
             <h2>One assessment. One verdict.</h2>
             
             <p class="subtitle">
@@ -1021,76 +1025,244 @@
                 </button>
             </div>
             
-            <p style="color: var(--text-muted); font-size: 0.9375rem;">
+            <p class="pricing-footer">
                 If you already know you'll ignore the signal, save your money.
             </p>
         </div>
     </section>
 
-<!-- FAQ -->
-<section id="faq" class="faq-section section-gray">
-    <div class="container-sm">
-        <h2 style="text-align: center;">Frequently Asked Questions</h2>
+    /* FAQ Section */
+        .faq-section {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
         
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFAQ(0)">
-                What do I get exactly?
-                <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24">
-                    <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-            </button>
-            <div class="faq-answer">
-                <p>You receive an immutable diagnostic report (PDF + on-screen) that includes your Primary GTM Shape, Misery Risk Level (Low/Medium/High), Time-to-Regret estimate, and explicit mismatch flags between your GTM requirements and your actual working patterns.</p>
+        .faq-section h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .faq-item {
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            background: var(--bg-primary);
+            transition: background 0.3s, border 0.3s;
+        }
+        
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            padding: 1.5rem 2rem;
+            background: transparent;
+            border: none;
+            font-size: 1.0625rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+            font-family: inherit;
+        }
+        
+        .faq-question:hover {
+            background: var(--bg-secondary);
+        }
+        
+        .faq-answer {
+            padding: 0 2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            padding: 0 2rem 1.5rem;
+            max-height: 500px;
+        }
+        
+        .faq-answer p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: 0.9375rem;
+        }
+        
+        .faq-icon {
+            transition: transform 0.3s;
+            flex-shrink: 0;
+            color: var(--text-muted);
+        }
+        
+        .faq-icon.active {
+            transform: rotate(180deg);
+        }
+        
+        .faq-cta {
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 1rem 2rem;
+            border: 2px solid var(--accent);
+            border-radius: 0.5rem;
+            transition: all 0.2s;
+            background: transparent;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-1px);
+        }
+    <!-- FAQ -->
+    <section id="faq" class="section-alt">
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(0)">
+                    What do I get exactly?
+                    <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>You receive an immutable diagnostic report (PDF + on-screen) that includes your Primary GTM Shape, Misery Risk Level (Low/Medium/High), Time-to-Regret estimate, and explicit mismatch flags between your GTM requirements and your actual working patterns.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(1)">
+                    Is there a refund policy?
+                    <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>No refunds for disagreement with the verdict. This is a deterministic diagnostic, not consulting. The same inputs produce the same verdict. If you're uncertain about committing to the diagnosis, save your $37.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(2)">
+                    How long does it take?
+                    <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>The assessment takes approximately 10-15 minutes to complete. Your diagnostic report is generated immediately upon completion and delivered both on-screen and via email as a PDF.</p>
+                </div>
+            </div>
+            
+            <div class="faq-cta">
+                <a href="wht_faq_page.html" class="btn-secondary">
+                    View All FAQs
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
             </div>
         </div>
-        
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFAQ(1)">
-                Is there a refund policy?
-                <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24">
-                    <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-            </button>
-            <div class="faq-answer">
-                <p>No refunds for disagreement with the verdict. This is a deterministic diagnostic, not consulting. The same inputs produce the same verdict. If you're uncertain about committing to the diagnosis, save your $37.</p>
-            </div>
-        </div>
-        
-       <div class="faq-item">
-            <button class="faq-question" onclick="toggleFAQ(2)">
-                How long does it take?
-                <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24">
-                    <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-            </button>
-            <div class="faq-answer">
-                <p>The assessment takes approximately 10-15 minutes to complete. Your diagnostic report is generated immediately upon completion and delivered both on-screen and via email as a PDF.</p>
-            </div>
-        </div>
-        
-        <!-- ADD THIS: View All FAQs Link -->
-        <div style="text-align: center; margin-top: 2.5rem;">
-            <a href="wht_faq_page.html" style="display: inline-block; color: var(--accent); text-decoration: none; font-weight: 600; font-size: 1rem; padding: 0.875rem 2rem; border: 2px solid var(--accent); border-radius: 0.5rem; transition: all 0.2s; background: transparent;">
-                View All FAQs →
-            </a>
-        </div>
-        
-      </div>  <!-- This closes container-sm -->
-</section>  <!-- This closes the FAQ section -->
+    </section>
 
+    /* Footer */
+        footer {
+            background: var(--text-primary);
+            color: var(--text-muted);
+            padding: 4rem 0 2rem;
+        }
+        
+        [data-theme="dark"] footer {
+            background: #000000;
+        }
+        
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        @media (min-width: 768px) {
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+        
+        .footer-logo {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            font-size: 0.9375rem;
+        }
+        
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            font-size: 0.875rem;
+        }
+        
+        .footer-built-by {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-built-by a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .footer-built-by a:hover {
+            color: white;
+        }
+        
+        .footer-copyright {
+            color: #525252;
+        }
     <!-- FOOTER -->
     <footer>
-        <div class="container">
+        <div class="footer-container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <div class="footer-logo-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" style="color: white;">
-                            <circle cx="12" cy="12" r="10"/>
-                            <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
-                        </svg>
-                    </div>
-                    <span class="footer-logo-text">Will I Hate This?</span>
-                </div>
+                <div class="footer-logo">Will I Hate This?</div>
                 
                 <div class="footer-links">
                     <a href="#pricing">Pricing</a>
@@ -1102,13 +1274,15 @@
                 </div>
             </div>
             
-            <div class="footer-copyright">
+            <div class="footer-bottom">
                 <div class="footer-built-by">
-                    Built with <svg width="14" height="14" viewBox="0 0 24 24" style="display: inline-block; vertical-align: middle; fill: #ef4444; stroke: none; margin: 0 2px;">
+                    Built with 
+                    <svg width="14" height="14" viewBox="0 0 24 24" style="display: inline-block; vertical-align: middle; fill: #ef4444; stroke: none; margin: 0 2px;">
                         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                    </svg> by <a href="https://twitter.com/RealWichly" target="_blank" rel="noopener noreferrer">Wish</a>
+                    </svg> 
+                    by <a href="https://twitter.com/RealWichly" target="_blank" rel="noopener noreferrer">Wish✨</a>
                 </div>
-                © 2026 Will I Hate This? All rights reserved.
+                <div class="footer-copyright">© 2026 Will I Hate This? All rights reserved.</div>
             </div>
         </div>
     </footer>
@@ -1180,14 +1354,9 @@
                 document.getElementById('navLinks').classList.remove('active');
             });
         });
-        
-        // Payment button placeholder
-        document.querySelectorAll('.btn-primary').forEach(button => {
-            button.addEventListener('click', function() {
-                alert('Payment integration coming soon. This is a placeholder button.\n\nOnce you choose Lemon Squeezy or PayPal, paste the payment code here.');
-            });
-        });
     </script>
 
 </body>
 </html>
+    
+    
